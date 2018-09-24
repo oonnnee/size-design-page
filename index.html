@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no"/>
+    <title>填写个人信息</title>
+    <link rel="stylesheet" href="css/index.css">
+    <link rel="stylesheet" href="css/mediaQueries3.css">
+    <link rel="stylesheet" href="css/mediaQueries2.css">
+    <link rel="stylesheet" href="css/mediaQueries1.css">
+
+</head>
+<body>
+        <div id="container">
+                        <div id="header">
+                            <div id="box">
+                                <span class="line_left"></span>
+                                <p>量体定制身型数据</p>
+                                <span class="line_right"></span>
+                            </div>
+                        </div>
+
+            <div id="main">
+                <form id="form">
+                    <div class="input">
+                        <span class="left_words">VIDEO TUTORIALS</span>
+                        <span class="right_words" id="clickFirst">视频教程</span>
+                    </div>
+                    <!--隐藏视频播放框开始-->
+                    <div id="hideVideo" class="hideVideo">
+                        <video id="video" class="video" src="video/LetHerGo.mp4" controls="controls"></video>
+                    </div>
+                    <!--隐藏视频播放框结束-->
+
+
+                    <div class="input">
+                        <span class="left_words">REQUIRED FIELDS</span>
+                        <span class="right_words" id="clickSecond">必填数据</span>
+                    </div>
+                        <!--必填数据框开始-->
+                        <div id="hideRequiredData" class="hideRequiredData">
+                            <br><br>
+                            <div class="requiredData">
+                                <span>淘宝名</span>
+                                <input type="text" name="tbName" size="20" placeholder="在店铺下单时使用的淘宝ID">
+                            </div>
+                            <div class="requiredData">
+                                <span>手机号码</span>
+                                <input type="text" name="phone" size="20" placeholder="在店铺下单时填写的手机号">
+                            </div>
+                            <div class="requiredData">
+                                <span>平时码数</span>
+                                <input type="text" name="smallSize" size="15" placeholder="仅填写S、L、M">
+                            </div>
+                            <div class="requiredData">
+                                <span>身高</span>
+                                <span class="cm">CM</span>
+                                <input type="text" name="height" size="15" placeholder="点击输入">
+                            </div>
+                            <div class="requiredData">
+                                <span>颈侧点—膝盖</span>
+                                <span class="cm">CM</span>
+                                <input type="text" name="neckKnee" size="15" placeholder="点击输入">
+                            </div>
+                            <div class="requiredData">
+                                <span>1/2肩宽+袖长</span>
+                                <span class="cm">CM</span>
+                                <input type="text" name="shoulderSleeve" size="15" placeholder="点击输入">
+                            </div>
+                            <div class="requiredData">
+                                <span>胸围</span>
+                                <span class="cm">CM</span>
+                                <input type="text" name="chest" size="15" placeholder="点击输入">
+                            </div>
+                            <div class="requiredData">
+                                <span>腰围</span>
+                                <span class="cm">CM</span>
+                                <input type="text" name="waist" size="15" placeholder="点击输入">
+                            </div>
+                            <div class="requiredData">
+                                <span>臀围</span>
+                                <span class="cm">CM</span>
+                                <input type="text" name="ass" size="15" placeholder="点击输入">
+                            </div>
+                            <div class="requiredData">
+                                <span>袖肥</span>
+                                <span class="cm">CM</span>
+                                <span id="requiredBracket">(上臂围)</span>
+                                <input type="text" name="sleeveFat" size="15" placeholder="点击输入">
+                            </div>
+                            <br><br>
+                        </div>
+                        <!--必填数据框结束-->
+
+
+
+                    <div class="input">
+                        <span class="left_words">OPTIONAL FIELDS</span>
+                        <span class="right_words" id="clickThird">选填数据</span>
+                    </div>
+                        <!--选填数据框开始-->
+                        <div id="hideOptionalData" class="hideOptionalData">
+                            <br><br>
+                            <div class="optionalData">
+                                <span>颈围</span>
+                                <span class="cm">CM</span>
+                                <input type="text" name="neck" size="5" placeholder="点击输入">
+                            </div>
+                            <div class="optionalData">
+                                <span>肩宽</span>
+                                <span class="cm">CM</span>
+                                <input type="text" name="shoulder" size="5" placeholder="点击输入">
+                            </div>
+                            <div class="optionalData">
+                                <span>胸距</span>
+                                <span class="cm">CM</span>
+                                <input type="text" name="chestDistance" size="5" placeholder="点击输入">
+                            </div>
+                            <div class="optionalData">
+                                <span>上胸围</span>
+                                <span class="cm">CM</span>
+                                <input type="text" name="chestUp" size="5" placeholder="点击输入">
+                            </div>
+                            <div class="optionalData">
+                                <span>前胸宽</span>
+                                <span class="cm">CM</span>
+                                <input type="text" name="chestFront" size="5" placeholder="点击输入">
+                            </div>
+                            <div class="optionalData">
+                                <span>后背宽</span>
+                                <span class="cm">CM</span>
+                                <input type="text" name="backWidth" size="5" placeholder="点击输入">
+                            </div>
+                            <div class="optionalData">
+                                <span>背长</span>
+                                <span class="cm">CM</span>
+                                <input type="text" name="backLength" size="5" placeholder="点击输入">
+                            </div>
+                            <div class="optionalData">
+                                <span>臂长</span>
+                                <span class="cm">CM</span>
+                                <span class="optionalBracket">(肩到手腕)</span>
+                                <input type="text" name="armLength" size="5" placeholder="点击输入">
+                            </div>
+                            <div class="optionalData">
+                                <span>上臂长</span>
+                                <span class="cm">CM</span>
+                                <span class="optionalBracket">(袖肘到肩)</span>
+                                <input type="text" name="armUpLength" size="5" placeholder="点击输入">
+                            </div>
+                            <div class="optionalData">
+                                <span>袖长</span>
+                                <span class="cm">CM</span>
+                                <span class="optionalBracket">(肩点到虎口)</span>
+                                <input type="text" name="sleeveLength" size="5" placeholder="点击输入">
+                            </div>
+                            <div class="optionalData">
+                                <span>臂围</span>
+                                <span class="cm">CM</span>
+                                <input type="text" name="armWidth" size="5" placeholder="点击输入">
+                            </div>
+                            <div class="optionalData">
+                                <span>袖笼围</span>
+                                <span class="cm">CM</span>
+                                <input type="text" name="sleeveWidth" size="5" placeholder="点击输入">
+                            </div>
+                            <div class="optionalData">
+                                <span>肘围</span>
+                                <span class="cm">CM</span>
+                                <input type="text" name="elbowWidth" size="5" placeholder="点击输入">
+                            </div>
+                            <div class="optionalData">
+                                <span>手腕围</span>
+                                <span class="cm">CM</span>
+                                <input type="text" name="wristWidth" size="5" placeholder="点击输入">
+                            </div>
+                            <div class="optionalData">
+                                <span>通档</span>
+                                <span class="cm">CM</span>
+                                <input type="text" name="pants" size="5" placeholder="点击输入">
+                            </div>
+                            <div class="optionalData">
+                                <span>大腿根围</span>
+                                <span class="cm">CM</span>
+                                <input type="text" name="bigLagWidth" size="5" placeholder="点击输入">
+                            </div>
+                            <div class="optionalData">
+                                <span>膝围</span>
+                                <span class="cm">CM</span>
+                                <input type="text" name="kneeWidth" size="5" placeholder="点击输入">
+                            </div>
+                            <div class="optionalData">
+                                <span>小腿围</span>
+                                <span class="cm">CM</span>
+                                <input type="text" name="smallLagWidth" size="5" placeholder="点击输入">
+                            </div>
+                            <div class="optionalData">
+                                <span>脚踝围</span>
+                                <span class="cm">CM</span>
+                                <input type="text" name="ankleWidth" size="5" placeholder="点击输入">
+                            </div>
+                            <div class="optionalData">
+                                <span>胸高</span>
+                                <span class="cm">CM</span>
+                                <input type="text" name="chestHeight" size="5" placeholder="点击输入">
+                            </div>
+                            <div class="optionalData">
+                                <span>腰高</span>
+                                <span class="cm">CM</span>
+                                <span class="optionalBracket">(脚底—中腰)</span>
+                                <input type="text" name="wristHeight" size="5" placeholder="点击输入">
+                            </div>
+                            <div class="optionalData">
+                                <span>后中长</span>
+                                <span class="cm">CM</span>
+                                <span class="optionalBracket">(第七颈椎点—地面)</span>
+                                <input type="text" name="backMidLength" size="5" placeholder="点击输入">
+                            </div>
+                            <div class="optionalData">
+                                <span>中腰—膝盖距离</span>
+                                <span class="cm">CM</span>
+                                <input type="text" name="wristKnee" size="5" placeholder="点击输入">
+                            </div>
+                            <div class="optionalData">
+                                <span>第七颈椎点—大腿根围</span>
+                                <span class="cm">CM</span>
+                                <input type="text" name="seventhLag" size="10" placeholder="点击输入">
+                            </div>
+
+                            <br><br>
+                        </div>
+                        <!--选填数据框结束-->
+                </form>
+                <button id="btn" onclick="submit()">提交数据</button>
+            </div>
+        </div>
+        <script src="js/index.js"></script>
+        <script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+        <script>
+            function submit() {
+                var checks = ["phone", "tbName", "smallSize", "height", "neckKnee", "shoulderSleeve", "chest", "waist", "ass", "sleeveFat"];
+                for (var i=0; i<checks.length; i++){
+                    var val = $('input[name='+checks[i]+']').val();
+                    if (val.trim() == '') {
+                        alert('必填数据不能为空');
+                        return;
+                    }
+
+                    if (i == 0){
+                        if (!/^\d{11}$/.test(val)){
+                            alert('手机号格式错误');
+                            return;
+                        }
+                    }
+
+                    if (i == 2){
+                        if (val!='S' && val!='M' && val!='L'){
+                            alert('平时码数仅填写S、M、L');
+                            return;
+                        }
+                    }
+
+                    if (i > 2){
+                        if (!isInputValid(val)) {
+                            alert('测量必须符合以下几点：\n1、数字\n2、非负数\n3、小数点最多一位');
+                            return;
+                        }
+                    }
+                }
+
+                var data = $("#form").serialize();
+
+                $('#btn').html('提交中...');
+                $('#btn').attr('disabled',true);
+
+                $.ajax({
+                    url: 'http://localhost:8068/customer-info/submit',
+                    type: "POST",
+                    dataType: 'json',
+                    data: data,
+                    success: function (data) {
+                        $('#btn').html('提交数据');
+                        $('#btn').attr('disabled',false);
+                        if(data.code == 0){
+                            alert('提交成功');
+                        }else if(data.code == 1){
+                            alert(data.data);
+                        }else {
+                            alert('内部异常');
+                        }
+                    },
+                    error: function(data) {
+                        alert('内部异常');
+                    }
+                });
+
+            }
+
+            function isInputValid(val) {
+                var regPos = /^\d+\.?\d?$/; //非负浮点数
+                if(regPos.test(val) || val == '') {
+                    return true;
+                } else {
+                    return false;
+                }
+            }
+        </script>
+</body>
+</html>
+

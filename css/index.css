@@ -1,0 +1,203 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+body{
+    background-color: rgb(239,239,239);
+}
+
+#container{
+    width: 400px;
+    border:1px solid #ccc;
+    margin:0 auto;
+    position: relative;
+}
+/*header style start*/
+#header{
+    width: 400px;
+    height: 260px;
+    background: url("../img/pyy.jpg") no-repeat;
+    background-size: 400px 260px;
+    position: relative;
+}
+#header #box{
+    width: 400px;
+    height: 100px;
+   /*background-color: darkred;*/
+    position: absolute;
+    /*top:90px;*/
+    left:0;
+    top:50%;
+    margin-top: -50px;
+}
+#header #box p{
+    text-align: center;
+    line-height: 100px;
+    color:rgb(222,222,222);
+}
+#header #box .line_left{
+    border-top:1px solid rgb(222,222,222);
+    width: 80px;
+    display: inline-block;
+    position: absolute;
+    top:50px;
+    left:30px;
+}
+#header #box .line_right{
+    border-top:1px solid rgb(222,222,222);
+    width: 80px;
+    display: inline-block;
+    position: absolute;
+    top:50px;
+    right:30px;
+}
+/*header style finish*/
+
+/*main style start*/
+#main{
+    margin-top:10px;
+    margin-bottom: 100px;
+}
+#main input{
+    background-color: rgb(239,239,239);
+    outline: none;
+}
+#main .input{
+    height: 50px;
+    width: 370px;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+    background: rgba(70,70,70,0.1);
+    margin-left: 15px;
+    margin-top: 10px;
+
+}
+#main .input .left_words{
+    display: block;
+    line-height: 50px;
+    margin-left: 5px;
+    float: left;
+}
+#main .input .right_words{
+    float: right;
+    display: block;
+    line-height: 50px;
+    margin-right:10px;
+    color: rgb(179,165,118);
+    font-size: 14px;
+    cursor: pointer;
+}
+
+
+/*隐藏视频播放框开始*/
+.hideVideo{
+    display: none;
+}
+.hideVideoShow{
+    /*width: 200px;*/
+    /*height:auto;*/
+    display: inline;
+}
+.video{
+    width: 400px;
+    margin-top: 30px;
+    margin-bottom: 20px;
+}
+
+/*隐藏视频播放框结束*/
+
+
+
+/*必填数据框样式开始*/
+.hideRequiredData{
+    display: none;
+}
+
+.hideRequiredShow{
+    width: 400px;
+    height: auto;
+    /*border:1px solid red;*/
+}
+.requiredData{
+    width: 320px;
+    height: 40px;
+    border-bottom:1px solid grey;
+    margin:5px auto;
+}
+.requiredData span{
+    line-height: 40px;
+    float: left;
+}
+.requiredData .cm{
+    float: right;
+    font-size: 10px;
+
+}
+.requiredData #requiredBracket{
+    line-height: 44px;
+    font-size: 12px;
+}
+.requiredData input{
+    float: right;
+    margin-top: 12px;
+    text-align: right;
+    border: 0;
+}
+/*必填数据框样式结束*/
+
+/*选填数据框样式开始*/
+.hideOptionalData{
+    display: none;
+}
+
+.hideOptionalShow{
+    width: 400px;
+    height: auto;
+    /*border:1px solid red;*/
+}
+.optionalData{
+    width: 320px;
+    height: 40px;
+    border-bottom:1px solid grey;
+    margin:5px auto;
+}
+.optionalData span{
+    line-height: 40px;
+    float: left;
+}
+.optionalData .cm{
+    float: right;
+    font-size: 10px;
+}
+.optionalData .optionalBracket{
+    line-height: 44px;
+    font-size: 12px;
+}
+.optionalData input{
+    float: right;
+    margin-top: 12px;
+    text-align: right;
+    border: 0;
+}
+/*选填数据框样式结束*/
+
+#btn:hover{
+    color: white;
+    cursor: pointer;
+}
+#btn{
+    width: 220px;
+    height: 50px;
+    color: darkgrey;
+    background-color: #000000;
+    outline: none;
+    /*position: absolute;*/
+    /*bottom: 50px;*/
+    /*left: 90px;*/
+    position: relative;
+    left: 90px;
+    top: 50px;
+    border-radius: 5px;
+    border: 0;
+}

@@ -1,0 +1,68 @@
+@media screen and (max-width: 320px){
+    #container{
+        width: 320px;
+        /*background-color: purple;*/
+    }
+    /*header style start*/
+    #header{
+        width: 320px;
+        height: 205px;
+        background-size: 320px 205px;
+    }
+    #header #box{
+        width: 320px;
+        height: 100px;
+        left:0;
+        top:50%;
+        margin-top: -50px;
+        /*background-color: darkred;*/
+    }
+
+    /*header style end*/
+
+
+    /*main style start*/
+    #main{
+        margin-bottom: 100px;
+    }
+    #main .input{
+        width: 290px;
+        height: 60px;
+        margin:30px auto;
+    }
+
+    /*隐藏视频播放框开始*/
+    .video{
+        width: 320px;
+        margin-top: 20px;
+    }
+
+    /*隐藏视频播放框结束*/
+
+    /*必填数据框样式开始*/
+    .hideRequiredShow{
+        width: 320px;
+    }
+    .requiredData{
+        width: 280px;
+    }
+
+    /*必填数据框样式结束*/
+
+    /*选填数据框样式开始*/
+    .hideOptionalShow{
+        width: 320px;
+    }
+    .optionalData{
+        width: 285px;
+    }
+    /*选填数据框样式结束*/
+
+
+
+    #btn{
+        left: 50px;
+        top: 40px;
+    }
+    /*main style end*/
+}
