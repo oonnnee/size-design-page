@@ -42,8 +42,8 @@
         }
         var phone = $('#phone').val();
         $.ajax({
-            // url: 'http://47.100.247.103:8068/customer-info/submit',
-            url: 'http://localhost:8068/sms/get/'+phone,
+            url: 'http://47.100.247.103:8068/sms/get/'+phone,
+            // url: 'http://localhost:8068/sms/get/'+phone,
             type: "get",
             xhrFields:{
                 withCredentials:true
@@ -82,7 +82,8 @@
         }
 
         $.ajax({
-            url: 'http://localhost:8068/sms/ok/'+phone+'/'+code,
+            // url: 'http://localhost:8068/sms/ok/'+phone+'/'+code,
+            url: 'http://47.100.247.103:8068/sms/ok/'+phone+'/'+code,
             type: "get",
             xhrFields:{
                 withCredentials:true
