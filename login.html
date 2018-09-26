@@ -60,8 +60,9 @@
                             clearInterval(interval);
                             $('#sendSmsBtn').html('重新发送');
                             countdown = 60;
+                        }else{
+                            $('#sendSmsBtn').html('重新发送('+countdown+')');
                         }
-                        $('#sendSmsBtn').html('重新发送('+countdown+')');
                     }, 1000);
                 }else {
                     alert('请求验证码太频繁了');
