@@ -41,6 +41,10 @@
             return;
         }
         var phone = $('#phone').val();
+        if (phone.length!=13 || phone.trim()==''){
+            alert('手机号不存在');
+            return;
+        }
         $.ajax({
             url: 'http://47.100.247.103:8068/sms/get/'+phone,
             // url: 'http://localhost:8068/sms/get/'+phone,
@@ -49,7 +53,6 @@
                 withCredentials:true
             },
             success: function (data) {
-                console.log(data)
                 if (data.toUpperCase() == 'OK'){
                     interval = setInterval(function () {
                         countdown--;
@@ -59,10 +62,12 @@
                         }
                         $('#sendSmsBtn').html('重新发送('+countdown+')');
                     }, 1000);
+                }else {
+                    alert('请求验证码太频繁了');
                 }
             },
             error: function(data) {
-                alert('内部异常');
+                alert('手机号不存在');
             }
         });
     }
@@ -89,7 +94,6 @@
                 withCredentials:true
             },
             success: function (data) {
-                console.log(data)
                 if (data == 'true'){
                     location.href = '/index.html';
                 }else {
