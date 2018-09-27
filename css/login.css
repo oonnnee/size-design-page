@@ -111,8 +111,8 @@ html,body{
 .container{
     background: url("../img/bg.jpg") no-repeat ;
     background-size: cover;
-    height: 100%;
-    padding-top: 20%;
+    /*height: 100%;*/
+    /*padding-top: 20%;*/
     padding-left: 5%;
     padding-right: 5%;
     box-sizing: border-box;
