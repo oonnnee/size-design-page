@@ -112,6 +112,10 @@ html,body{
     background: url("../img/bg.jpg") no-repeat ;
     background-size: cover;
     height: 100%;
+    padding-top: 20%;
+    padding-left: 5%;
+    padding-right: 5%;
+    box-sizing: border-box;
 }
 
 .top{
@@ -119,10 +123,7 @@ html,body{
     -webkit-border-radius: 5px;
     -moz-border-radius: 5px;
     border-radius: 5px;
-    height: 25%;
-    margin-top: 25%;
-    margin-left: 5%;
-    margin-right: 5%;
+    height: 35%;
 }
 
 .edit{
