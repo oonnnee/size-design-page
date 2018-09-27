@@ -13,7 +13,7 @@ body{
 #header{
     height: 260px;
     background: url("../img/mt.jpg") no-repeat;
-    background-size: 400px 260px;
+    background-size: cover;
     position: relative;
 }
 #header #box{
@@ -112,15 +112,13 @@ body{
 }
 
 .hideRequiredShow{
-    width: 400px;
     height: auto;
     /*border:1px solid red;*/
 }
 .requiredData{
-    width: 320px;
     height: 40px;
     border-bottom:1px solid grey;
-    margin:5px auto;
+    margin:5px 30px;
 }
 .requiredData span{
     line-height: 40px;
@@ -149,15 +147,13 @@ body{
 }
 
 .hideOptionalShow{
-    width: 400px;
     height: auto;
     /*border:1px solid red;*/
 }
 .optionalData{
-    width: 320px;
     height: 40px;
     border-bottom:1px solid grey;
-    margin:5px auto;
+    margin:5px 30px;
 }
 .optionalData span{
     line-height: 40px;
