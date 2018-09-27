@@ -59,7 +59,7 @@
 }
 
 
-#top .rightWords{
+.rightWords{
     display: inline-block;
     width: 80px;
     height: 18px;
@@ -102,4 +102,83 @@
 /*修改placeholder字体的颜色*/
 input::placeholder{
     color: white;
+}
+
+html,body{
+    height: 100%;
+}
+
+.container{
+    background: url("../img/bg.jpg") no-repeat ;
+    background-size: cover;
+    height: 100%;
+}
+
+.top{
+    background-color:  rgba(199,130,30,0.5);
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+    height: 25%;
+    margin-top: 25%;
+    margin-left: 5%;
+    margin-right: 5%;
+}
+
+.edit{
+    outline: none;
+    border:0;
+    background-color:  rgba(199,130,30,0);
+    color: white;
+    width: 40%;
+    height: 100%;
+    margin-left: 5%;
+}
+
+[class^="option_"] {
+    height: 30%;
+    padding-left: 5%;
+    padding-right: 5%;
+}
+
+.option_1{
+    padding-top: 8%;
+}
+.option_1{
+    margin-top: 4%;
+}
+
+.rightWord{
+    display: inline-block;
+    width:30%;
+    height: 25px;
+    font-size: 12px;
+    line-height: 25px   ;
+    background-color: white;
+    text-align: center;
+    color: rgba(199,130,30,0.5);
+    cursor: pointer;
+}
+
+.hr{
+    height: 1px;
+    background-color: white;
+}
+
+.bottom{
+    height: 50%;
+}
+
+.bottom input{
+    width: 80%;
+    height: 16%;
+    background-color: #000;
+    color: #cccccc;
+    border:0;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+    outline: none;
+    cursor: pointer;
+    margin: 60% 10%;
 }
