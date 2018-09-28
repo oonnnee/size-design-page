@@ -334,6 +334,8 @@
                         }
                     },
                     error: function() {
+                        $('#btn').html('提交数据');
+                        $('#btn').attr('disabled',false);
                         alert('未知错误');
                     }
                 });
