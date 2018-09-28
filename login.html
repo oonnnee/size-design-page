@@ -64,12 +64,25 @@
                             $('#sendSmsBtn').html('重新发送('+countdown+')');
                         }
                     }, 1000);
-                }else {
-                    alert('请求验证码太频繁了');
+                }else if(data == 'isv.MOBILE_NUMBER_ILLEGAL') {
+                    alert('手机号不存在');
+                    lock = false;
+                }else if(data == 'isv.OUT_OF_SERVICE') {
+                    alert('发验证码账号已停机，请等待相关人员处理~~');
+                    lock = false;
+                }else if(data == 'isv.AMOUNT_NOT_ENOUGH') {
+                    alert('发验证码账号余额不足，请等待相关人员处理~~');
+                    lock = false;
+                }else if(data == 'isv.BUSINESS_LIMIT_CONTROL') {
+                    alert('请求验证码太频繁了，请稍后发送~~');
+                    lock = false;
+                }else{
+                    alert('未知错误');
+                    lock = false;
                 }
             },
             error: function(data) {
-                alert('手机号不存在');
+                alert('未知错误');
                 lock = false;
             }
         });
@@ -104,7 +117,7 @@
                 }
             },
             error: function(data) {
-                alert('内部异常');
+                alert('未知错误');
             }
         });
     }

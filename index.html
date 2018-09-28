@@ -5,14 +5,11 @@
     <meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no"/>
     <title>填写个人信息</title>
     <link rel="stylesheet" href="css/index.css">
-    <!--<link rel="stylesheet" href="css/mediaQueries3.css">-->
-    <!--<link rel="stylesheet" href="css/mediaQueries2.css">-->
-    <!--<link rel="stylesheet" href="css/mediaQueries1.css">-->
     <script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
     <script>
         $.ajax({
-            // url: 'http://localhost:8068/auth',
-            url: 'http://47.100.247.103:8068/auth',
+            // url: 'http://localhost:8068/user/auth',
+            url: 'http://47.100.247.103:8068/user/auth',
             type: "get",
             async: false,
             xhrFields:{
@@ -24,7 +21,7 @@
                 }
             },
             error: function(data) {
-                alert('内部异常');
+                alert('未知错误');
                 location.href = '/login.html'
             }
         });
@@ -256,6 +253,23 @@
         </div>
         <script src="js/index.js"></script>
         <script>
+            var curUserPhone = '';
+            $.ajax({
+                // url: 'http://localhost:8068/user/phone',
+                url: 'http://47.100.247.103:8068/user/phone',
+                type: "get",
+                async: false,
+                xhrFields:{
+                    withCredentials:true
+                },
+                success: function (data) {
+                    curUserPhone = data;
+                },
+                error: function() {
+                    alert('未知错误');
+                    location.href = '/login.html'
+                }
+            });
             function submit() {
                 var checks = ["phone", "tbName", "smallSize", "height", "neckKnee", "shoulderSleeve", "chest", "waist", "ass", "sleeveFat"];
                 for (var i=0; i<checks.length; i++){
@@ -270,6 +284,11 @@
                             alert('手机号格式错误');
                             return;
                         }
+                        if (val != curUserPhone){
+                            alert('手机号应与登陆号码一致');
+                            return;
+                        }
+
                     }
 
                     if (i == 2){
@@ -298,6 +317,9 @@
                     type: "POST",
                     dataType: 'json',
                     data: data,
+                    xhrFields:{
+                        withCredentials:true
+                    },
                     success: function (data) {
                         $('#btn').html('提交数据');
                         $('#btn').attr('disabled',false);
@@ -305,12 +327,14 @@
                             alert('提交成功');
                         }else if(data.code == 1){
                             alert(data.data);
+                        }else if(data.code == 2){
+                            alert(data.msg);
                         }else {
-                            alert('内部异常');
+                            alert('未知错误');
                         }
                     },
-                    error: function(data) {
-                        alert('内部异常');
+                    error: function() {
+                        alert('未知错误');
                     }
                 });
 
