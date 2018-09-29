@@ -8,7 +8,7 @@ html,body{
 
 
 .header{
-    height: 30%;
+    height: 260px;
     background: url("../img/mt2.jpg") no-repeat;
     background-size: cover;
 }
@@ -22,7 +22,7 @@ html,body{
 
 .content{
     background: #F8F8F8;
-    height: 30%;
+    height: 40%;
     padding: 12% 8%;
 }
 
