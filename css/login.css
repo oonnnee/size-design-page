@@ -184,18 +184,18 @@ html,body{
     /*margin: 60% 10%;*/
 /*}*/
 
-#btn:hover{
-    color: white;
-    cursor: pointer;
-}
-#btn{
-    width: 80%;
-    height: 50px;
-    color: darkgrey;
-    background-color: #000000;
-    outline: none;
-    border-radius: 5px;
-    border: 0;
-    margin-left: 10%;
-    margin-top: 50px;
-}
+/*#btn:hover{*/
+    /*color: white;*/
+    /*cursor: pointer;*/
+/*}*/
+/*#btn{*/
+    /*width: 80%;*/
+    /*height: 50px;*/
+    /*color: darkgrey;*/
+    /*background-color: #000000;*/
+    /*outline: none;*/
+    /*border-radius: 5px;*/
+    /*border: 0;*/
+    /*margin-left: 10%;*/
+    /*margin-top: 50px;*/
+/*}*/
