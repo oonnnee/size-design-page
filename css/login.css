@@ -184,11 +184,11 @@ html,body{
     /*margin: 60% 10%;*/
 /*}*/
 
-#btn:hover{
-    color: white;
-    cursor: pointer;
-}
-#btn{
+/*#btn:hover{*/
+    /*color: white;*/
+    /*cursor: pointer;*/
+/*}*/
+.btn{
     -webkit-appearance:none;
     width: 80%;
     height: 50px;
