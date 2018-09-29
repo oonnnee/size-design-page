@@ -5,7 +5,6 @@
 #container{
     width: 400px;
     /*height: 600px;*/
-    border: 1px solid #eee;
     margin:0 auto;
     background: url("../img/bg.jpg") no-repeat;
     -webkit-background-size: 400px 600px;

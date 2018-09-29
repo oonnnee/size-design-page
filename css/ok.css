@@ -1,0 +1,40 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+html,body{
+    height: 100%;
+}
+
+
+.header{
+    height: 30%;
+    background: url("../img/mt2.jpg") no-repeat;
+    background-size: cover;
+}
+
+.main{
+    height: 70%;
+    padding-left: 10%;
+    padding-right: 10%;
+    padding-top: 20%;
+}
+
+.content{
+    background: #F8F8F8;
+    height: 30%;
+    padding: 12% 8%;
+}
+
+.content-header{
+    font-size: 14px;
+    font-weight: bold;
+    margin-bottom: 8%;
+    line-height: 22px;
+}
+
+.content-text div{
+    font-size: 13px;
+    color: #D3D3D3;
+    line-height: 20px;
+}
