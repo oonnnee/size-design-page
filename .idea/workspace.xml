@@ -1,10 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="77639392-e8f1-4107-8a51-082f30a23a35" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/index.html" afterDir="false" />
-    </list>
+    <list default="true" id="77639392-e8f1-4107-8a51-082f30a23a35" name="Default" comment="" />
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
     <ignored path="$PROJECT_DIR$/tmp/" />
@@ -17,7 +14,7 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="index.html" pinned="false" current-in-tab="true">
+      <file leaf-file-name="index.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/index.html">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="152">
@@ -35,11 +32,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="index.css" pinned="false" current-in-tab="false">
+      <file leaf-file-name="index.css" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/css/index.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="822">
-              <caret line="185" column="15" selection-start-line="185" selection-start-column="15" selection-end-line="185" selection-end-column="15" />
+            <state relative-caret-position="157">
+              <caret line="150" column="18" lean-forward="true" selection-start-line="150" selection-start-column="18" selection-end-line="150" selection-end-column="18" />
             </state>
           </provider>
         </entry>
@@ -160,12 +157,12 @@
       <workItem from="1537913798884" duration="2431000" />
       <workItem from="1538001290708" duration="11549000" />
       <workItem from="1538152169913" duration="5248000" />
-      <workItem from="1538205873994" duration="1037000" />
+      <workItem from="1538205873994" duration="1317000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="36644000" />
+    <option name="totallyTimeSpent" value="36924000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -358,13 +355,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/css/index.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="822">
-          <caret line="185" column="15" selection-start-line="185" selection-start-column="15" selection-end-line="185" selection-end-column="15" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/login.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-1036">
@@ -376,6 +366,13 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="152">
           <caret line="14" column="26" lean-forward="true" selection-start-line="14" selection-start-column="26" selection-end-line="14" selection-end-column="26" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/css/index.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="157">
+          <caret line="150" column="18" lean-forward="true" selection-start-line="150" selection-start-column="18" selection-end-line="150" selection-end-column="18" />
         </state>
       </provider>
     </entry>
