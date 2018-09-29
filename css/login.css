@@ -170,16 +170,32 @@ html,body{
     height: 50%;
 }
 
-.bottom input{
-    width: 80%;
-    height: 20%;
-    background-color: #000;
-    color: #cccccc;
-    border:0;
-    -webkit-border-radius: 5px;
-    -moz-border-radius: 5px;
-    border-radius: 5px;
-    outline: none;
+/*.bottom input{*/
+    /*width: 80%;*/
+    /*height: 20%;*/
+    /*background-color: #000;*/
+    /*color: #cccccc;*/
+    /*border:0;*/
+    /*-webkit-border-radius: 5px;*/
+    /*-moz-border-radius: 5px;*/
+    /*border-radius: 5px;*/
+    /*outline: none;*/
+    /*cursor: pointer;*/
+    /*margin: 60% 10%;*/
+/*}*/
+
+#btn:hover{
+    color: white;
     cursor: pointer;
-    margin: 60% 10%;
+}
+#btn{
+    width: 60%;
+    height: 50px;
+    color: darkgrey;
+    background-color: #000000;
+    outline: none;
+    border-radius: 5px;
+    border: 0;
+    margin-left: 20%;
+    margin-top: 50px;
 }
