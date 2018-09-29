@@ -46,7 +46,7 @@
             return;
         }
         $.ajax({
-            url: 'http://47.100.247.103:8068/sms/get/'+phone,
+            url: 'http://measure.justalit.com:8068/sms/get/'+phone,
             // url: 'http://localhost:8068/sms/get/'+phone,
             type: "get",
             xhrFields:{
@@ -90,7 +90,7 @@
 
         $.ajax({
             // url: 'http://localhost:8068/sms/ok/'+phone+'/'+code,
-            url: 'http://47.100.247.103:8068/sms/ok/'+phone+'/'+code,
+            url: 'http://measure.justalit.com:8068/sms/ok/'+phone+'/'+code,
             type: "get",
             xhrFields:{
                 withCredentials:true

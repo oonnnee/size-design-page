@@ -10,7 +10,7 @@
         alert('1')
         $.ajax({
             // url: 'http://localhost:8068/user/auth',
-            url: 'http://47.100.247.103:8068/user/auth',
+            url: 'http://measure.justalit.com:8068/user/auth',
             type: "get",
             async: false,
             xhrFields:{
@@ -257,7 +257,7 @@
             var curUserPhone = '';
             $.ajax({
                 // url: 'http://localhost:8068/user/phone',
-                url: 'http://47.100.247.103:8068/user/phone',
+                url: 'http://measure.justalit.com:8068/user/phone',
                 type: "get",
                 async: false,
                 xhrFields:{
@@ -314,7 +314,7 @@
                 $('#btn').attr('disabled',true);
 
                 $.ajax({
-                    url: 'http://47.100.247.103:8068/customer-info/submit',
+                    url: 'http://measure.justalit.com:8068/customer-info/submit',
                     type: "POST",
                     dataType: 'json',
                     data: data,
