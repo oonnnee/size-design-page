@@ -17,8 +17,8 @@
                 withCredentials:true
             },
             success: function (data) {
+                alert(data)
                 if(data != 'true'){
-                    alert()
                     location.href = '/login.html'
                 }
             },
