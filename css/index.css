@@ -63,7 +63,7 @@ body{
 #main input{
     background-color: rgb(239,239,239);
     outline: none;
-    width: 120px;
+    width: 80px;
 }
 #main .input{
     height: 50px;
