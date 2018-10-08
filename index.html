@@ -26,6 +26,64 @@
             }
         });
     </script>
+    <script>
+        $(function () {
+            $.ajax({
+                // url: 'http://localhost:8068/customer-info/get',
+                url: 'http://measure.justalit.com:8068/customer-info/get',
+                type: "get",
+                async: false,
+                xhrFields:{
+                    withCredentials:true
+                },
+                success: function (data) {
+                    if (data.code == 0){
+                        var data = data.data;
+                        if (data != null){
+                            $('input[name=tbName]').val(data.tbName);
+                            $('input[name=phone]').val(data.phone);
+                            $('input[name=smallSize]').val(data.smallSize);
+                            $('input[name=height]').val(data.height);
+                            $('input[name=neckKnee]').val(data.neckKnee);
+                            $('input[name=shoulderSleeve]').val(data.shoulderSleeve);
+                            $('input[name=chest]').val(data.chest);
+                            $('input[name=waist]').val(data.waist);
+                            $('input[name=ass]').val(data.ass);
+                            $('input[name=sleeveFat]').val(data.sleeveFat);
+                            $('input[name=neck]').val(data.neck);
+                            $('input[name=shoulder]').val(data.shoulder);
+                            $('input[name=chestDistance]').val(data.chestDistance);
+                            $('input[name=chestUp]').val(data.chestUp);
+                            $('input[name=chestFront]').val(data.chestFront);
+                            $('input[name=backWidth]').val(data.backWidth);
+                            $('input[name=backLength]').val(data.backLength);
+                            $('input[name=armLength]').val(data.armLength);
+                            $('input[name=armUpLength]').val(data.armUpLength);
+                            $('input[name=sleeveLength]').val(data.sleeveLength);
+                            $('input[name=armWidth]').val(data.armWidth);
+                            $('input[name=sleeveWidth]').val(data.sleeveWidth);
+                            $('input[name=elbowWidth]').val(data.elbowWidth);
+                            $('input[name=wristWidth]').val(data.wristWidth);
+                            $('input[name=pants]').val(data.pants);
+                            $('input[name=bigLagWidth]').val(data.bigLagWidth);
+                            $('input[name=kneeWidth]').val(data.kneeWidth);
+                            $('input[name=smallLagWidth]').val(data.smallLagWidth);
+                            $('input[name=ankleWidth]').val(data.ankleWidth);
+                            $('input[name=chestHeight]').val(data.chestHeight);
+                            $('input[name=wristHeight]').val(data.wristHeight);
+                            $('input[name=backMidLength]').val(data.backMidLength);
+                            $('input[name=wristKnee]').val(data.wristKnee);
+                            $('input[name=seventhLag]').val(data.seventhLag);
+                        }
+                    }
+                },
+                error: function() {
+                    alert('未知错误');
+                    location.href = '/login.html'
+                }
+            });
+        });
+    </script>
 </head>
 <body>
         <div id="container">
