@@ -21,6 +21,13 @@
     padding: 0 30px !important;
 }
 
+.layui-layer-btn a{
+    -webkit-tap-highlight-color: rgba(255, 255, 255, 0) !important;
+    -webkit-user-select: none !important;
+    -moz-user-focus: none !important;
+    -moz-user-select: none !important;
+}
+
 .layui-layer-btn{
     text-align: center !important;
     padding: initial !important;
