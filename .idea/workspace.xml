@@ -95,10 +95,13 @@
       <find>btn</find>
       <find>47.100.247.103</find>
       <find>header</find>
+      <find>alert</find>
+      <find>myAlert</find>
     </findStrings>
     <replaceStrings>
       <replace>未知错误</replace>
       <replace>measure.justalit.com</replace>
+      <replace>myAlert</replace>
     </replaceStrings>
     <dirStrings>
       <dir>D:\Documents\Files\project\Code\size-design-page</dir>
