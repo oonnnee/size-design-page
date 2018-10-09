@@ -393,7 +393,10 @@
                         }else if(data.code == 1){
                             myAlert(data.data);
                         }else if(data.code == 2){
-                            myAlert(data.msg);
+                            myAlert(data.msg, function (index) {
+                                layer.close(index);
+                                location.href = '/login.html'
+                            });
                         }else {
                             myAlert('未知错误');
                         }
