@@ -42,8 +42,10 @@
         lock = true;
         var phone = $('#phone').val();
         if (phone.length!=11 || phone.trim()==''){
-            myAlert('手机号不存在');
-            return;
+            myAlert('手机号不存在', function (index) {
+                layer.close(index);
+                lock = false;
+            });
         }
         $.ajax({
             url: 'http://measure.justalit.com:8068/sms/get/'+phone,
@@ -66,25 +68,37 @@
                         }
                     }, 1000);
                 }else if(data == 'isv.MOBILE_NUMBER_ILLEGAL') {
-                    myAlert('手机号不存在');
-                    lock = false;
+                    myAlert('手机号不存在', function (index) {
+                        layer.close(index);
+                        lock = false;
+                    });
                 }else if(data == 'isv.OUT_OF_SERVICE') {
-                    myAlert('发验证码账号已停机，请等待相关人员处理~~');
-                    lock = false;
+                    myAlert('发验证码账号已停机，请等待相关人员处理~~', function (index) {
+                        layer.close(index);
+                        lock = false;
+                    });
                 }else if(data == 'isv.AMOUNT_NOT_ENOUGH') {
-                    myAlert('发验证码账号余额不足，请等待相关人员处理~~');
-                    lock = false;
+                    myAlert('发验证码账号余额不足，请等待相关人员处理~~', function (index) {
+                        layer.close(index);
+                        lock = false;
+                    });
                 }else if(data == 'isv.BUSINESS_LIMIT_CONTROL') {
-                    myAlert('请求验证码太频繁了，请稍后发送~~');
-                    lock = false;
+                    myAlert('请求验证码太频繁了，请稍后发送~~', function (index) {
+                        layer.close(index);
+                        lock = false;
+                    });
                 }else{
-                    myAlert('未知错误');
-                    lock = false;
+                    myAlert('未知错误', function (index) {
+                        layer.close(index);
+                        lock = false;
+                    });
                 }
             },
             error: function(data) {
-                myAlert('未知错误');
-                lock = false;
+                myAlert('未知错误', function (index) {
+                    layer.close(index);
+                    lock = false;
+                });
             }
         });
     }
