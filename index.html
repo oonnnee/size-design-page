@@ -386,8 +386,10 @@
                         $('#btn').html('提交数据');
                         $('#btn').attr('disabled',false);
                         if(data.code == 0){
-                            myAlert('提交成功');
-                            location.href = '/ok.html'
+                            myAlert('提交成功', function (index) {
+                                layer.close(index);
+                                location.href = '/ok.html'
+                            });
                         }else if(data.code == 1){
                             myAlert(data.data);
                         }else if(data.code == 2){
