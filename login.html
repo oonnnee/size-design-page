@@ -41,7 +41,14 @@
         }
         lock = true;
         var phone = $('#phone').val();
-        if (phone.length!=11 || phone.trim()==''){
+        if (phone.trim() == ''){
+            myAlert('请输入手机号', function (index) {
+                layer.close(index);
+                lock = false;
+            });
+            return;
+        }
+        if (phone.length != 11){
             myAlert('手机号不存在', function (index) {
                 layer.close(index);
                 lock = false;
