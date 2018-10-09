@@ -4,8 +4,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no"/>
     <title>填写个人信息</title>
+    <link rel="stylesheet" href="css/common.css">
     <link rel="stylesheet" href="css/index.css">
     <script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdn.bootcss.com/layer/3.1.0/layer.js"></script>
+    <script src="js/common.js"></script>
     <script>
         $.ajax({
             // url: 'http://localhost:8068/user/auth',
@@ -21,8 +24,10 @@
                 }
             },
             error: function(data) {
-                alert('未知错误');
-                location.href = '/login.html'
+                myAlert('未知错误', function (index) {
+                    layer.close(index);
+                    location.href = '/login.html'
+                });
             }
         });
     </script>
@@ -78,8 +83,10 @@
                     }
                 },
                 error: function() {
-                    alert('未知错误');
-                    location.href = '/login.html'
+                    myAlert('未知错误', function (index) {
+                        layer.close(index);
+                        location.href = '/login.html'
+                    });
                 }
             });
         });
@@ -318,8 +325,10 @@
                     curUserPhone = data;
                 },
                 error: function() {
-                    alert('未知错误');
-                    location.href = '/login.html'
+                    myAlert('未知错误', function (index) {
+                        layer.close(index);
+                        location.href = '/login.html'
+                    });
                 }
             });
             function submit() {
@@ -327,17 +336,17 @@
                 for (var i=0; i<checks.length; i++){
                     var val = $('input[name='+checks[i]+']').val();
                     if (val.trim() == '') {
-                        alert('必填数据不能为空');
+                        myAlert('必填数据不能为空');
                         return;
                     }
 
                     if (i == 0){
                         if (!/^\d{11}$/.test(val)){
-                            alert('手机号格式错误');
+                            myAlert('手机号格式错误');
                             return;
                         }
                         if (val != curUserPhone){
-                            alert('手机号应与登陆号码一致');
+                            myAlert('手机号应与登陆号码一致');
                             return;
                         }
 
@@ -346,14 +355,14 @@
                     if (i == 2){
                         val = val.toUpperCase();
                         if (val!='S' && val!='M' && val!='L'){
-                            alert('平时码数仅填写S、M、L');
+                            myAlert('平时码数仅填写S、M、L');
                             return;
                         }
                     }
 
                     if (i > 2){
                         if (!isInputValid(val)) {
-                            alert('测量必须符合以下几点：\n1、数字\n2、非负数\n3、小数点最多一位');
+                            myAlert('测量必须符合以下几点：\n1、数字\n2、非负数\n3、小数点最多一位');
                             return;
                         }
                     }
@@ -377,20 +386,20 @@
                         $('#btn').html('提交数据');
                         $('#btn').attr('disabled',false);
                         if(data.code == 0){
-                            alert('提交成功');
+                            myAlert('提交成功');
                             location.href = '/ok.html'
                         }else if(data.code == 1){
-                            alert(data.data);
+                            myAlert(data.data);
                         }else if(data.code == 2){
-                            alert(data.msg);
+                            myAlert(data.msg);
                         }else {
-                            alert('未知错误');
+                            myAlert('未知错误');
                         }
                     },
                     error: function() {
                         $('#btn').html('提交数据');
                         $('#btn').attr('disabled',false);
-                        alert('未知错误');
+                        myAlert('未知错误');
                     }
                 });
 

@@ -24,6 +24,8 @@
     <button class="btn" onclick="login()">开启定制之旅</button>
 </div>
 <script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+<script src="https://cdn.bootcss.com/layer/3.1.0/layer.js"></script>
+<script src="js/common.js"></script>
 <script type="text/javascript">
 
     $('div[class=container]').height($(window).height());
@@ -39,7 +41,7 @@
         lock = true;
         var phone = $('#phone').val();
         if (phone.length!=11 || phone.trim()==''){
-            alert('手机号不存在');
+            myAlert('手机号不存在');
             return;
         }
         $.ajax({
@@ -63,24 +65,24 @@
                         }
                     }, 1000);
                 }else if(data == 'isv.MOBILE_NUMBER_ILLEGAL') {
-                    alert('手机号不存在');
+                    myAlert('手机号不存在');
                     lock = false;
                 }else if(data == 'isv.OUT_OF_SERVICE') {
-                    alert('发验证码账号已停机，请等待相关人员处理~~');
+                    myAlert('发验证码账号已停机，请等待相关人员处理~~');
                     lock = false;
                 }else if(data == 'isv.AMOUNT_NOT_ENOUGH') {
-                    alert('发验证码账号余额不足，请等待相关人员处理~~');
+                    myAlert('发验证码账号余额不足，请等待相关人员处理~~');
                     lock = false;
                 }else if(data == 'isv.BUSINESS_LIMIT_CONTROL') {
-                    alert('请求验证码太频繁了，请稍后发送~~');
+                    myAlert('请求验证码太频繁了，请稍后发送~~');
                     lock = false;
                 }else{
-                    alert('未知错误');
+                    myAlert('未知错误');
                     lock = false;
                 }
             },
             error: function(data) {
-                alert('未知错误');
+                myAlert('未知错误');
                 lock = false;
             }
         });
@@ -91,12 +93,12 @@
         var code = $('#code').val();
 
         if (code.trim() == '') {
-            alert('请输入验证码');
+            myAlert('请输入验证码');
             return;
         }
 
         if (code.length != 6){
-            alert('验证码格式错误');
+            myAlert('验证码格式错误');
             return;
         }
 
@@ -111,11 +113,11 @@
                 if (data == 'true'){
                     location.href = '/index.html';
                 }else {
-                    alert('验证码错误')
+                    myAlert('验证码错误')
                 }
             },
             error: function(data) {
-                alert('未知错误');
+                myAlert('未知错误');
             }
         });
     }

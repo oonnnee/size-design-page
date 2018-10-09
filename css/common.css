@@ -1,0 +1,28 @@
+.layui-layer{
+    border-radius: 6px !important;
+}
+
+.layui-layer-dialog .layui-layer-content{
+    border-bottom: 1px solid #eee;
+    text-align: center;
+}
+
+.layui-layer-btn .layui-layer-btn0{
+    border-color: initial !important;
+    background-color: initial !important;
+    color: #1E9FFF !important;
+}
+
+.layui-layer-btn a{
+    margin: 5px !important;
+    border: none !important;
+    background-color: initial !important;
+    color: initial !important;
+    padding: 0 30px !important;
+}
+
+.layui-layer-btn{
+    text-align: center !important;
+    padding: initial !important;
+
+}

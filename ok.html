@@ -6,6 +6,8 @@
     <title>提交成功</title>
     <link rel="stylesheet" href="css/ok.css">
     <script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdn.bootcss.com/layer/3.1.0/layer.js"></script>
+    <script src="js/common.js"></script>
     <script>
         $.ajax({
             // url: 'http://localhost:8068/user/auth',
@@ -21,8 +23,10 @@
                 }
             },
             error: function(data) {
-                alert('未知错误');
-                location.href = '/login.html'
+                myAlert('未知错误', function (index) {
+                    layer.close(index);
+                    location.href = '/login.html';
+                });
             }
         });
     </script>
