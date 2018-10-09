@@ -46,6 +46,7 @@
                 layer.close(index);
                 lock = false;
             });
+            return;
         }
         $.ajax({
             url: 'http://measure.justalit.com:8068/sms/get/'+phone,
