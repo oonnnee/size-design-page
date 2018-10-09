@@ -11,23 +11,12 @@
     <script src="js/common.js"></script>
     <script>
         $.ajax({
-            // url: 'http://localhost:8068/user/auth',
-            url: 'http://measure.justalit.com:8068/user/auth',
-            type: "get",
+            // url: 'http://localhost:8068/user/logout',
+            url: 'http://measure.justalit.com:8068/user/logout',
+            type: "post",
             async: false,
             xhrFields:{
                 withCredentials:true
-            },
-            success: function (data) {
-                if(data != 'true'){
-                    location.href = '/login.html'
-                }
-            },
-            error: function(data) {
-                myAlert('未知错误', function (index) {
-                    layer.close(index);
-                    location.href = '/login.html';
-                });
             }
         });
     </script>
