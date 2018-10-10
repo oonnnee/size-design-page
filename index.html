@@ -332,83 +332,88 @@
                 }
             });
             function submit() {
-                myAlert('开始校验数据');
-                var checks = ["phone", "tbName", "smallSize", "height", "neckKnee", "shoulderSleeve", "chest", "waist", "ass", "sleeveFat"];
-                for (var i=0; i<checks.length; i++){
-                    var val = $('input[name='+checks[i]+']').val();
-                    if (val.trim() == '') {
-                        myAlert('必填数据不能为空');
-                        return;
-                    }
-
-                    if (i == 0){
-                        if (!/^\d{11}$/.test(val)){
-                            myAlert('手机号格式错误');
-                            return;
-                        }
-                        if (val != curUserPhone){
-                            myAlert('手机号应与登陆号码一致');
+                myAlert('开始校验数据', function(index) {
+                    layer.close(index);
+                    var checks = ["phone", "tbName", "smallSize", "height", "neckKnee", "shoulderSleeve", "chest", "waist", "ass", "sleeveFat"];
+                    for (var i=0; i<checks.length; i++){
+                        var val = $('input[name='+checks[i]+']').val();
+                        if (val.trim() == '') {
+                            myAlert('必填数据不能为空');
                             return;
                         }
 
-                    }
+                        if (i == 0){
+                            if (!/^\d{11}$/.test(val)){
+                                myAlert('手机号格式错误');
+                                return;
+                            }
+                            if (val != curUserPhone){
+                                myAlert('手机号应与登陆号码一致');
+                                return;
+                            }
 
-                    if (i == 2){
-                        val = val.toUpperCase();
-                        if (val!='S' && val!='M' && val!='L'){
-                            myAlert('平时码数仅填写S、M、L');
-                            return;
                         }
-                    }
 
-                    if (i > 2){
-                        if (!isInputValid(val)) {
-                            myAlert('测量值必须符合以下几点：\n1、数字\n2、非负数\n3、小数点最多一位');
-                            return;
+                        if (i == 2){
+                            val = val.toUpperCase();
+                            if (val!='S' && val!='M' && val!='L'){
+                                myAlert('平时码数仅填写S、M、L');
+                                return;
+                            }
                         }
-                    }
-                }
 
-                myAlert('数据校验成功，开始提交');
-                var data = $("#form").serialize();
-
-                $('#btn').html('提交中...');
-                $('#btn').attr('disabled',true);
-
-                $.ajax({
-                    // url: 'http://localhost:8068/customer-info/submit',
-                    url: 'http://measure.justalit.com:8068/customer-info/submit',
-                    type: "POST",
-                    dataType: 'json',
-                    data: data,
-                    xhrFields:{
-                        withCredentials:true
-                    },
-                    success: function (data) {
-                        $('#btn').html('提交数据');
-                        $('#btn').attr('disabled',false);
-                        if(data.code == 0){
-                            myAlert('提交成功', function (index) {
-                                layer.close(index);
-                                location.href = '/ok.html'
-                            });
-                        }else if(data.code == 1){
-                            myAlert(data.data);
-                        }else if(data.code == 2){
-                            myAlert(data.msg, function (index) {
-                                layer.close(index);
-                                location.href = '/login.html'
-                            });
-                        }else {
-                            myAlert('未知错误');
+                        if (i > 2){
+                            if (!isInputValid(val)) {
+                                myAlert('测量值必须符合以下几点：\n1、数字\n2、非负数\n3、小数点最多一位');
+                                return;
+                            }
                         }
-                    },
-                    error: function() {
-                        $('#btn').html('提交数据');
-                        $('#btn').attr('disabled',false);
-                        myAlert('未知错误');
                     }
                 });
+
+
+                myAlert('数据校验成功，开始提交', function(index) {
+                    var data = $("#form").serialize();
+
+                    $('#btn').html('提交中...');
+                    $('#btn').attr('disabled',true);
+
+                    $.ajax({
+                        // url: 'http://localhost:8068/customer-info/submit',
+                        url: 'http://measure.justalit.com:8068/customer-info/submit',
+                        type: "POST",
+                        dataType: 'json',
+                        data: data,
+                        xhrFields:{
+                            withCredentials:true
+                        },
+                        success: function (data) {
+                            $('#btn').html('提交数据');
+                            $('#btn').attr('disabled',false);
+                            if(data.code == 0){
+                                myAlert('提交成功', function (index) {
+                                    layer.close(index);
+                                    location.href = '/ok.html'
+                                });
+                            }else if(data.code == 1){
+                                myAlert(data.data);
+                            }else if(data.code == 2){
+                                myAlert(data.msg, function (index) {
+                                    layer.close(index);
+                                    location.href = '/login.html'
+                                });
+                            }else {
+                                myAlert('未知错误');
+                            }
+                        },
+                        error: function() {
+                            $('#btn').html('提交数据');
+                            $('#btn').attr('disabled',false);
+                            myAlert('未知错误');
+                        }
+                    });
+                });
+
 
             }
 
