@@ -369,51 +369,49 @@
                             }
                         }
                     }
-                });
 
+                    myAlert('数据校验成功，开始提交', function(index) {
+                        var data = $("#form").serialize();
 
-                myAlert('数据校验成功，开始提交', function(index) {
-                    var data = $("#form").serialize();
+                        $('#btn').html('提交中...');
+                        $('#btn').attr('disabled',true);
 
-                    $('#btn').html('提交中...');
-                    $('#btn').attr('disabled',true);
-
-                    $.ajax({
-                        // url: 'http://localhost:8068/customer-info/submit',
-                        url: 'http://measure.justalit.com:8068/customer-info/submit',
-                        type: "POST",
-                        dataType: 'json',
-                        data: data,
-                        xhrFields:{
-                            withCredentials:true
-                        },
-                        success: function (data) {
-                            $('#btn').html('提交数据');
-                            $('#btn').attr('disabled',false);
-                            if(data.code == 0){
-                                myAlert('提交成功', function (index) {
-                                    layer.close(index);
-                                    location.href = '/ok.html'
-                                });
-                            }else if(data.code == 1){
-                                myAlert(data.data);
-                            }else if(data.code == 2){
-                                myAlert(data.msg, function (index) {
-                                    layer.close(index);
-                                    location.href = '/login.html'
-                                });
-                            }else {
+                        $.ajax({
+                            // url: 'http://localhost:8068/customer-info/submit',
+                            url: 'http://measure.justalit.com:8068/customer-info/submit',
+                            type: "POST",
+                            dataType: 'json',
+                            data: data,
+                            xhrFields:{
+                                withCredentials:true
+                            },
+                            success: function (data) {
+                                $('#btn').html('提交数据');
+                                $('#btn').attr('disabled',false);
+                                if(data.code == 0){
+                                    myAlert('提交成功', function (index) {
+                                        layer.close(index);
+                                        location.href = '/ok.html'
+                                    });
+                                }else if(data.code == 1){
+                                    myAlert(data.data);
+                                }else if(data.code == 2){
+                                    myAlert(data.msg, function (index) {
+                                        layer.close(index);
+                                        location.href = '/login.html'
+                                    });
+                                }else {
+                                    myAlert('未知错误');
+                                }
+                            },
+                            error: function() {
+                                $('#btn').html('提交数据');
+                                $('#btn').attr('disabled',false);
                                 myAlert('未知错误');
                             }
-                        },
-                        error: function() {
-                            $('#btn').html('提交数据');
-                            $('#btn').attr('disabled',false);
-                            myAlert('未知错误');
-                        }
+                        });
                     });
                 });
-
 
             }
 
