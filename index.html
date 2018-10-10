@@ -332,6 +332,7 @@
                 }
             });
             function submit() {
+                myAlert('开始校验数据');
                 var checks = ["phone", "tbName", "smallSize", "height", "neckKnee", "shoulderSleeve", "chest", "waist", "ass", "sleeveFat"];
                 for (var i=0; i<checks.length; i++){
                     var val = $('input[name='+checks[i]+']').val();
@@ -368,6 +369,7 @@
                     }
                 }
 
+                myAlert('数据校验成功，开始提交');
                 var data = $("#form").serialize();
 
                 $('#btn').html('提交中...');
