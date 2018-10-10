@@ -3,6 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="77639392-e8f1-4107-8a51-082f30a23a35" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/index.html" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -19,8 +20,8 @@
       <file leaf-file-name="index.html" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/index.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-5616">
-              <caret line="12" column="16" lean-forward="true" selection-start-line="12" selection-start-column="16" selection-end-line="12" selection-end-column="16" />
+            <state relative-caret-position="236">
+              <caret line="371" column="36" selection-start-line="371" selection-start-column="36" selection-end-line="371" selection-end-column="36" />
             </state>
           </provider>
         </entry>
@@ -71,11 +72,11 @@
         <option value="$PROJECT_DIR$/css/ok.css" />
         <option value="$PROJECT_DIR$/js/common.js" />
         <option value="$PROJECT_DIR$/css/common.css" />
-        <option value="$PROJECT_DIR$/index.html" />
         <option value="$PROJECT_DIR$/js/jquery.min.js" />
         <option value="$PROJECT_DIR$/login.html" />
-        <option value="$PROJECT_DIR$/index.html" />
         <option value="$PROJECT_DIR$/ok.html" />
+        <option value="$PROJECT_DIR$/index.html" />
+        <option value="$PROJECT_DIR$/index.html" />
       </list>
     </option>
   </component>
@@ -88,7 +89,7 @@
   <component name="NodePackageJsonFileManager">
     <packageJsonPaths />
   </component>
-  <component name="ProjectFrameBounds" extendedState="7">
+  <component name="ProjectFrameBounds" extendedState="6">
     <option name="x" value="-10" />
     <option name="y" value="-10" />
     <option name="width" value="1750" />
@@ -183,12 +184,12 @@
       <workItem from="1538205873994" duration="13266000" />
       <workItem from="1538991767786" duration="4280000" />
       <workItem from="1539056374755" duration="5357000" />
-      <workItem from="1539078928044" duration="4265000" />
+      <workItem from="1539078928044" duration="4524000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="62775000" />
+    <option name="totallyTimeSpent" value="63034000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -200,7 +201,7 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-7" y="-7" width="1550" height="838" extended-state="7" />
+    <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
     <layout>
       <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.18229854" />
       <window_info anchor="bottom" id="TODO" order="6" weight="0.32905984" />
@@ -527,8 +528,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/index.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-5616">
-          <caret line="12" column="16" lean-forward="true" selection-start-line="12" selection-start-column="16" selection-end-line="12" selection-end-column="16" />
+        <state relative-caret-position="236">
+          <caret line="371" column="36" selection-start-line="371" selection-start-column="36" selection-end-line="371" selection-end-column="36" />
         </state>
       </provider>
     </entry>
