@@ -3,6 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no"/>
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+    <meta http-equiv="Pragma" content="no-cache" />
+    <meta http-equiv="Expires" content="0" />
     <title>填写个人信息</title>
     <link rel="stylesheet" href="css/common.css">
     <link rel="stylesheet" href="css/index.css">
@@ -20,13 +23,13 @@
             },
             success: function (data) {
                 if(data != 'true'){
-                    location.href = '/login.html'
+                    location.href = '/login.html?r='+new Date().getTime();
                 }
             },
             error: function(data) {
                 myAlert('未知错误', function (index) {
                     layer.close(index);
-                    location.href = '/login.html'
+                    location.href = '/login.html?r='+new Date().getTime();
                 });
             }
         });
@@ -85,7 +88,7 @@
                 error: function() {
                     myAlert('未知错误', function (index) {
                         layer.close(index);
-                        location.href = '/login.html'
+                        location.href = '/login.html?r='+new Date().getTime();
                     });
                 }
             });
@@ -327,7 +330,7 @@
                 error: function() {
                     myAlert('未知错误', function (index) {
                         layer.close(index);
-                        location.href = '/login.html'
+                        location.href = '/login.html?r='+new Date().getTime();
                     });
                 }
             });
@@ -391,14 +394,14 @@
                                 if(data.code == 0){
                                     myAlert('提交成功', function (index) {
                                         layer.close(index);
-                                        location.href = '/ok.html'
+                                        location.href = '/ok.html?r='+new Date().getTime();
                                     });
                                 }else if(data.code == 1){
                                     myAlert(data.data);
                                 }else if(data.code == 2){
                                     myAlert(data.msg, function (index) {
                                         layer.close(index);
-                                        location.href = '/login.html'
+                                        location.href = '/login.html?r='+new Date().getTime();
                                     });
                                 }else {
                                     myAlert('未知错误');
