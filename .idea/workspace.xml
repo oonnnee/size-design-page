@@ -2,8 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="77639392-e8f1-4107-8a51-082f30a23a35" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/css/login.css" beforeDir="false" afterPath="$PROJECT_DIR$/css/login.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/login.html" beforeDir="false" afterPath="$PROJECT_DIR$/login.html" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
@@ -39,8 +37,8 @@
       <file leaf-file-name="login.html" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/login.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="139">
-              <caret line="63" column="15" selection-start-line="63" selection-start-column="15" selection-end-line="63" selection-end-column="15" />
+            <state relative-caret-position="167">
+              <caret line="74" selection-start-line="74" selection-end-line="80" selection-end-column="12" />
               <folding>
                 <element signature="e#5834#5856#0" expanded="true" />
               </folding>
@@ -83,6 +81,7 @@
       <find>myAlert</find>
       <find>未知错误</find>
       <find>.country-list ul</find>
+      <find>+86</find>
     </findStrings>
     <replaceStrings>
       <replace>未知错误</replace>
@@ -222,12 +221,12 @@
       <workItem from="1539078928044" duration="9192000" />
       <workItem from="1539767443541" duration="2340000" />
       <workItem from="1540971089675" duration="3000000" />
-      <workItem from="1541036089044" duration="5764000" />
+      <workItem from="1541036089044" duration="6869000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="78806000" />
+    <option name="totallyTimeSpent" value="79911000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -242,14 +241,14 @@
     <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.18229854" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.18229854" />
       <window_info anchor="bottom" id="TODO" order="6" weight="0.32905984" />
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Event Log" order="10" side_tool="true" />
       <window_info anchor="bottom" id="Version Control" order="9" />
       <window_info anchor="bottom" id="Run" order="2" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
-      <window_info anchor="bottom" id="Terminal" order="8" visible="true" weight="0.2724679" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="8" visible="true" weight="0.2724679" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -560,8 +559,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/login.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="139">
-          <caret line="63" column="15" selection-start-line="63" selection-start-column="15" selection-end-line="63" selection-end-column="15" />
+        <state relative-caret-position="167">
+          <caret line="74" selection-start-line="74" selection-end-line="80" selection-end-column="12" />
           <folding>
             <element signature="e#5834#5856#0" expanded="true" />
           </folding>
