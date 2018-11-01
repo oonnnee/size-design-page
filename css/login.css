@@ -105,7 +105,7 @@ html,body{
     -webkit-border-radius: 5px;
     -moz-border-radius: 5px;
     border-radius: 5px;
-    height: 300px;
+    padding: 10px 5% 30px;
 }
 
 .edit{
@@ -119,16 +119,7 @@ html,body{
 }
 
 [class^="option_"] {
-    height: 25%;
-    padding-left: 5%;
-    padding-right: 5%;
-}
-
-.option_1{
-    padding-top: 8%;
-}
-.option_1{
-    margin-top: 4%;
+    height: 75px;
 }
 
 .option_1 .box {
@@ -175,7 +166,7 @@ html,body{
     border-radius: 5px;
     border: 0;
     margin-left: 10%;
-    margin-top: 50px;
+    margin-top: 80px;
 }
 
 
