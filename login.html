@@ -2,56 +2,77 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no"/>
-    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
-    <meta http-equiv="Pragma" content="no-cache" />
-    <meta http-equiv="Expires" content="0" />
+    <meta name="viewport"
+          content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no"/>
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate"/>
+    <meta http-equiv="Pragma" content="no-cache"/>
+    <meta http-equiv="Expires" content="0"/>
     <title>登陆</title>
     <link rel="stylesheet" href="css/login.css">
     <link rel="stylesheet" href="css/common.css">
 </head>
 <body>
 <div class="container">
-     <div class="top">
-            <div class="option_1">
-                <span>手机号</span>
-                <input id="phone" type="text" size="15" placeholder="请输入手机号" class="edit">
-                <span id="sendSmsBtn" class="rightWord" onclick="sendSMS();">获取验证码</span>
-                <div class="hr"></div>
+    <div class="top">
+        <div class="option_1">
+            <div class="box">
+                <span>手机号归属地</span>
+                <a id="country" href="javascript:void(0)" onclick="countrySel()" value="86">中国</a>
             </div>
-            <div class="option_2">
-                <span>验证码</span>
-                <input id="code" type="text" size="15" placeholder="请输入验证码" class="edit">
-                <div class="hr"></div>
-            </div>
-     </div>
+            <div class="hr"></div>
+        </div>
+        <div class="option_2">
+            <span>手机号</span>
+            <input id="phone" type="text" size="15" placeholder="请输入手机号" class="edit">
+            <span id="sendSmsBtn" class="rightWord" onclick="sendSMS();">获取验证码</span>
+            <div class="hr"></div>
+        </div>
+        <div class="option_3">
+            <span>验证码</span>
+            <input id="code" type="text" size="15" placeholder="请输入验证码" class="edit">
+            <div class="hr"></div>
+        </div>
+    </div>
     <button class="btn" onclick="login()">开启定制之旅</button>
 </div>
 <script src="js/jquery.js"></script>
 <script src="js/layer.js"></script>
 <script src="js/common.js"></script>
 <script type="text/javascript">
+    function countrySel() {
+        layer.open({
+            type: 1,
+            shade: 0.3,
+            title: false, //不显示标题
+            closeBtn: false,
+            shadeClose: true,
+            content: $('#nationlist'),
+        });
+    }
+</script>
+<script type="text/javascript">
 
     $('div[class=container]').height($(window).height());
     $('div[class=container]').css('padding-top', '20%');
 
-    var countdown=60;
+    var countdown = 60;
     var interval;
     var lock = false;
+
     function sendSMS() {
-        if (lock){
+        if (lock) {
             return;
         }
         lock = true;
-        var phone = $('#phone').val();
-        if (phone.trim() == ''){
+        var phone = $('#country')[0].getAttribute('value') + $('#phone').val();
+        if (phone.trim() == '') {
             myAlert('请输入手机号', function (index) {
                 layer.close(index);
                 lock = false;
             });
             return;
         }
-        if (phone.length != 11){
+        if (phone.length != 11) {
             myAlert('手机号不存在', function (index) {
                 layer.close(index);
                 lock = false;
@@ -59,53 +80,53 @@
             return;
         }
         $.ajax({
-            url: 'http://measure.justalit.com:8068/sms/get/'+phone,
+            url: 'http://measure.justalit.com:8068/sms/get/' + phone,
             // url: 'http://localhost:8068/sms/get/'+phone,
             type: "get",
-            xhrFields:{
-                withCredentials:true
+            xhrFields: {
+                withCredentials: true
             },
             success: function (data) {
-                if (data.toUpperCase() == 'OK'){
+                if (data.toUpperCase() == 'OK') {
                     interval = setInterval(function () {
                         countdown--;
-                        if (countdown == 0){
+                        if (countdown == 0) {
                             clearInterval(interval);
                             $('#sendSmsBtn').html('重新发送');
                             countdown = 60;
                             lock = false;
-                        }else{
-                            $('#sendSmsBtn').html('重新发送('+countdown+')');
+                        } else {
+                            $('#sendSmsBtn').html('重新发送(' + countdown + ')');
                         }
                     }, 1000);
-                }else if(data == 'isv.MOBILE_NUMBER_ILLEGAL') {
+                } else if (data == 'isv.MOBILE_NUMBER_ILLEGAL') {
                     myAlert('手机号不存在', function (index) {
                         layer.close(index);
                         lock = false;
                     });
-                }else if(data == 'isv.OUT_OF_SERVICE') {
+                } else if (data == 'isv.OUT_OF_SERVICE') {
                     myAlert('发验证码账号已停机，请等待相关人员处理~~', function (index) {
                         layer.close(index);
                         lock = false;
                     });
-                }else if(data == 'isv.AMOUNT_NOT_ENOUGH') {
+                } else if (data == 'isv.AMOUNT_NOT_ENOUGH') {
                     myAlert('发验证码账号余额不足，请等待相关人员处理~~', function (index) {
                         layer.close(index);
                         lock = false;
                     });
-                }else if(data == 'isv.BUSINESS_LIMIT_CONTROL') {
+                } else if (data == 'isv.BUSINESS_LIMIT_CONTROL') {
                     myAlert('请求验证码太频繁了，请稍后发送~~', function (index) {
                         layer.close(index);
                         lock = false;
                     });
-                }else{
+                } else {
                     myAlert('出错啦', function (index) {
                         layer.close(index);
                         lock = false;
                     });
                 }
             },
-            error: function(data) {
+            error: function (data) {
                 myAlert('出错啦', function (index) {
                     layer.close(index);
                     lock = false;
@@ -123,31 +144,289 @@
             return;
         }
 
-        if (code.length != 6){
+        if (code.length != 6) {
             myAlert('验证码格式错误');
             return;
         }
 
         $.ajax({
             // url: 'http://localhost:8068/sms/ok/'+phone+'/'+code,
-            url: 'http://measure.justalit.com:8068/sms/ok/'+phone+'/'+code,
+            url: 'http://measure.justalit.com:8068/sms/ok/' + phone + '/' + code,
             type: "get",
-            xhrFields:{
-                withCredentials:true
+            xhrFields: {
+                withCredentials: true
             },
             success: function (data) {
-                if (data == 'true'){
+                if (data == 'true') {
                     location.href = '/index.html';
-                }else {
+                } else {
                     myAlert('验证码错误')
                 }
             },
-            error: function(data) {
+            error: function (data) {
                 myAlert('出错啦');
             }
         });
     }
+</script>
+<script type="text/javascript">
+    $(function () {
+        $('#nationlist li:not(.tl)').click(function (e) {
+            var liObj;
+            var spanObj;
+            var iObj;
+            var target = e.target;
+            var tagName = target.tagName.toUpperCase();
+            if (tagName == 'LI'){
+                liObj = target;
+                spanObj = target.children[0];
+                iObj = target.children[1];
+            } else if(tagName == 'SPAN'){
+                liObj = target.parentNode;
+                spanObj = target;
+                iObj = target.nextSibling;
+            } else if (tagName == 'I'){
+                liObj = target.parentNode;
+                spanObj = target.previousSibling;
+                iObj = target;
+            }
 
+            var countryName = spanObj.innerHTML;
+            var countryNum = iObj.innerHTML.substring(1, iObj.innerHTML.length);
+            $('#country')[0].setAttribute('value', countryNum);
+            $('#country')[0].innerHTML = countryName;
+
+            layer.closeAll();
+        })
+    });
 </script>
 </body>
+
+<!--
+    国家地区
+-->
+<ul style="display: none;" id="nationlist">
+    <li class="tl">热门地区</li>
+    <li id="nationlist_CN" nationid="CN" title="中国大陆"><span>中国大陆</span><i>+86</i></li>
+    <li id="nationlist_HK" nationid="HK" title="中国香港"><span>中国香港</span><i>+852</i></li>
+    <li id="nationlist_MO" nationid="MO" title="中国澳门"><span>中国澳门</span><i>+853</i></li>
+    <li id="nationlist_TW" nationid="TW" title="中国台湾"><span>中国台湾</span><i>+886</i></li>
+    <li id="nationlist_GB" nationid="GB" title="英国"><span>英国</span><i>+44</i></li>
+    <li id="nationlist_US" nationid="US" title="美国"><span>美国</span><i>+1</i></li>
+    <li id="nationlist_AU" nationid="AU" title="澳大利亚"><span>澳大利亚</span><i>+61</i></li>
+    <li id="nationlist_JP" nationid="JP" title="日本"><span>日本</span><i>+81</i></li>
+    <li id="nationlist_KR" nationid="KR" title="韩国"><span>韩国</span><i>+82</i></li>
+    <li id="nationlist_SG" nationid="SG" title="新加坡"><span>新加坡</span><i>+65</i></li>
+    <li id="nationlist_DE" nationid="DE" title="德国"><span>德国</span><i>+49</i></li>
+    <li id="nationlist_CA" nationid="CA" title="加拿大"><span>加拿大</span><i>+1</i></li>
+    <li class="tl">A</li>
+    <li id="nationlist_AL" nationid="AL" title="阿尔巴尼亚"><span>阿尔巴尼亚</span><i>+355</i></li>
+    <li id="nationlist_DZ" nationid="DZ" title="阿尔及利亚"><span>阿尔及利亚</span><i>+213</i></li>
+    <li id="nationlist_AF" nationid="AF" title="阿富汗"><span>阿富汗</span><i>+93</i></li>
+    <li id="nationlist_AR" nationid="AR" title="阿根廷"><span>阿根廷</span><i>+54</i></li>
+    <li id="nationlist_AK" nationid="AK" title="阿拉斯加"><span>阿拉斯加</span><i>+1907</i></li>
+    <li id="nationlist_AE" nationid="AE" title="阿联酋"><span>阿联酋</span><i>+971</i></li>
+    <li id="nationlist_AW" nationid="AW" title="阿鲁巴岛"><span>阿鲁巴岛</span><i>+297</i></li>
+    <li id="nationlist_OM" nationid="OM" title="阿曼"><span>阿曼</span><i>+968</i></li>
+    <li id="nationlist_AZ" nationid="AZ" title="阿塞拜疆"><span>阿塞拜疆</span><i>+994</i></li>
+    <li id="nationlist_AC" nationid="AC" title="阿森松岛"><span>阿森松岛</span><i>+247</i></li>
+    <li id="nationlist_EG" nationid="EG" title="埃及"><span>埃及</span><i>+20</i></li>
+    <li id="nationlist_ET" nationid="ET" title="埃塞俄比亚"><span>埃塞俄比亚</span><i>+251</i></li>
+    <li id="nationlist_IE" nationid="IE" title="爱尔兰"><span>爱尔兰</span><i>+353</i></li>
+    <li id="nationlist_EE" nationid="EE" title="爱沙尼亚"><span>爱沙尼亚</span><i>+372</i></li>
+    <li id="nationlist_AD" nationid="AD" title="安道尔共和国"><span>安道尔共和国</span><i>+376</i></li>
+    <li id="nationlist_AO" nationid="AO" title="安哥拉"><span>安哥拉</span><i>+244</i></li>
+    <li id="nationlist_AT" nationid="AT" title="奥地利"><span>奥地利</span><i>+43</i></li>
+    <li class="tl">B</li>
+    <li id="nationlist_PK" nationid="PK" title="巴基斯坦"><span>巴基斯坦</span><i>+92</i></li>
+    <li id="nationlist_PY" nationid="PY" title="巴拉圭"><span>巴拉圭</span><i>+595</i></li>
+    <li id="nationlist_BL" nationid="BL" title="巴勒斯坦"><span>巴勒斯坦</span><i>+970</i></li>
+    <li id="nationlist_BH" nationid="BH" title="巴林"><span>巴林</span><i>+973</i></li>
+    <li id="nationlist_PA" nationid="PA" title="巴拿马"><span>巴拿马</span><i>+507</i></li>
+    <li id="nationlist_BR" nationid="BR" title="巴西"><span>巴西</span><i>+55</i></li>
+    <li id="nationlist_BM" nationid="BM" title="百慕大群岛"><span>百慕大群岛</span><i>+441</i></li>
+    <li id="nationlist_BG" nationid="BG" title="保加利亚"><span>保加利亚</span><i>+359</i></li>
+    <li id="nationlist_BJ" nationid="BJ" title="贝宁"><span>贝宁</span><i>+229</i></li>
+    <li id="nationlist_BE" nationid="BE" title="比利时"><span>比利时</span><i>+32</i></li>
+    <li id="nationlist_IS" nationid="IS" title="冰岛"><span>冰岛</span><i>+354</i></li>
+    <li id="nationlist_BA" nationid="BA" title="波黑"><span>波黑</span><i>+387</i></li>
+    <li id="nationlist_PL" nationid="PL" title="波兰"><span>波兰</span><i>+48</i></li>
+    <li id="nationlist_BO" nationid="BO" title="玻利维亚"><span>玻利维亚</span><i>+591</i></li>
+    <li id="nationlist_BZ" nationid="BZ" title="伯利兹"><span>伯利兹</span><i>+501</i></li>
+    <li id="nationlist_BW" nationid="BW" title="博茨瓦纳"><span>博茨瓦纳</span><i>+267</i></li>
+    <li id="nationlist_BT" nationid="BT" title="不丹"><span>不丹</span><i>+975</i></li>
+    <li id="nationlist_BF" nationid="BF" title="布基拉法索"><span>布基拉法索</span><i>+226</i></li>
+    <li id="nationlist_BI" nationid="BI" title="布隆迪"><span>布隆迪</span><i>+257</i></li>
+    <li class="tl">C</li>
+    <li id="nationlist_KP" nationid="KP" title="朝鲜"><span>朝鲜</span><i>+850</i></li>
+    <li id="nationlist_GQ" nationid="GQ" title="赤道几内亚"><span>赤道几内亚</span><i>+240</i></li>
+    <li class="tl">D</li>
+    <li id="nationlist_DK" nationid="DK" title="丹麦"><span>丹麦</span><i>+45</i></li>
+    <li id="nationlist_TL" nationid="TL" title="东帝汶"><span>东帝汶</span><i>+670</i></li>
+    <li id="nationlist_AS" nationid="AS" title="东萨摩亚"><span>东萨摩亚</span><i>+684</i></li>
+    <li id="nationlist_TG" nationid="TG" title="多哥"><span>多哥</span><i>+228</i></li>
+    <li class="tl">E</li>
+    <li id="nationlist_BY" nationid="BY" title="俄罗斯"><span>俄罗斯</span><i>+7</i></li>
+    <li id="nationlist_EC" nationid="EC" title="厄瓜多尔"><span>厄瓜多尔</span><i>+593</i></li>
+    <li id="nationlist_ER" nationid="ER" title="厄立特里亚"><span>厄立特里亚</span><i>+291</i></li>
+    <li class="tl">F</li>
+    <li id="nationlist_FR" nationid="FR" title="法国"><span>法国</span><i>+33</i></li>
+    <li id="nationlist_FO" nationid="FO" title="法罗群岛"><span>法罗群岛</span><i>+298</i></li>
+    <li id="nationlist_GF" nationid="GF" title="法属圭亚那"><span>法属圭亚那</span><i>+594</i></li>
+    <li id="nationlist_VA" nationid="VA" title="梵蒂冈"><span>梵蒂冈</span><i>+396</i></li>
+    <li id="nationlist_PH" nationid="PH" title="菲律宾"><span>菲律宾</span><i>+63</i></li>
+    <li id="nationlist_FJ" nationid="FJ" title="斐济"><span>斐济</span><i>+679</i></li>
+    <li id="nationlist_FI" nationid="FI" title="芬兰"><span>芬兰</span><i>+358</i></li>
+    <li id="nationlist_CV" nationid="CV" title="佛得角"><span>佛得角</span><i>+238</i></li>
+    <li id="nationlist_FK" nationid="FK" title="福克兰群岛"><span>福克兰群岛</span><i>+500</i></li>
+    <li class="tl">G</li>
+    <li id="nationlist_GM" nationid="GM" title="冈比亚"><span>冈比亚</span><i>+220</i></li>
+    <li id="nationlist_CG" nationid="CG" title="刚果"><span>刚果</span><i>+242</i></li>
+    <li id="nationlist_CO" nationid="CO" title="哥伦比亚"><span>哥伦比亚</span><i>+57</i></li>
+    <li id="nationlist_CR" nationid="CR" title="哥斯达黎加"><span>哥斯达黎加</span><i>+506</i></li>
+    <li id="nationlist_GL" nationid="GL" title="格陵兰岛"><span>格陵兰岛</span><i>+299</i></li>
+    <li id="nationlist_CU" nationid="CU" title="古巴"><span>古巴</span><i>+53</i></li>
+    <li id="nationlist_GP" nationid="GP" title="瓜德罗普"><span>瓜德罗普</span><i>+590</i></li>
+    <li id="nationlist_GU" nationid="GU" title="关岛"><span>关岛</span><i>+671</i></li>
+    <li id="nationlist_GY" nationid="GY" title="圭亚那"><span>圭亚那</span><i>+592</i></li>
+    <li class="tl">H</li>
+    <li id="nationlist_KZ" nationid="KZ" title="哈萨克斯坦"><span>哈萨克斯坦</span><i>+7</i></li>
+    <li id="nationlist_HT" nationid="HT" title="海地"><span>海地</span><i>+509</i></li>
+    <li id="nationlist_NL" nationid="NL" title="荷兰"><span>荷兰</span><i>+31</i></li>
+    <li id="nationlist_HN" nationid="HN" title="洪都拉斯"><span>洪都拉斯</span><i>+504</i></li>
+    <li class="tl">J</li>
+    <li id="nationlist_KI" nationid="KI" title="基里巴斯"><span>基里巴斯</span><i>+686</i></li>
+    <li id="nationlist_DJ" nationid="DJ" title="吉布提"><span>吉布提</span><i>+253</i></li>
+    <li id="nationlist_KG" nationid="KG" title="吉尔吉斯斯坦"><span>吉尔吉斯斯坦</span><i>+996</i></li>
+    <li id="nationlist_GN" nationid="GN" title="几内亚"><span>几内亚</span><i>+224</i></li>
+    <li id="nationlist_GW" nationid="GW" title="几内亚比绍"><span>几内亚比绍</span><i>+245</i></li>
+    <li id="nationlist_GH" nationid="GH" title="加纳"><span>加纳</span><i>+233</i></li>
+    <li id="nationlist_GA" nationid="GA" title="加蓬"><span>加蓬</span><i>+241</i></li>
+    <li id="nationlist_KH" nationid="KH" title="柬埔寨"><span>柬埔寨</span><i>+855</i></li>
+    <li id="nationlist_CZ" nationid="CZ" title="捷克"><span>捷克</span><i>+420</i></li>
+    <li id="nationlist_ZW" nationid="ZW" title="津巴布韦"><span>津巴布韦</span><i>+263</i></li>
+    <li class="tl">K</li>
+    <li id="nationlist_CM" nationid="CM" title="喀麦隆"><span>喀麦隆</span><i>+237</i></li>
+    <li id="nationlist_QA" nationid="QA" title="卡塔尔"><span>卡塔尔</span><i>+974</i></li>
+    <li id="nationlist_CK" nationid="CK" title="科克群岛"><span>科克群岛</span><i>+682</i></li>
+    <li id="nationlist_KM" nationid="KM" title="科摩罗"><span>科摩罗</span><i>+269</i></li>
+    <li id="nationlist_KT" nationid="KT" title="科特迪瓦"><span>科特迪瓦</span><i>+225</i></li>
+    <li id="nationlist_KW" nationid="KW" title="科威特"><span>科威特</span><i>+965</i></li>
+    <li id="nationlist_HR" nationid="HR" title="克罗地亚"><span>克罗地亚</span><i>+385</i></li>
+    <li id="nationlist_KE" nationid="KE" title="肯尼亚"><span>肯尼亚</span><i>+254</i></li>
+    <li class="tl">L</li>
+    <li id="nationlist_LV" nationid="LV" title="拉脱维亚"><span>拉脱维亚</span><i>+371</i></li>
+    <li id="nationlist_LS" nationid="LS" title="莱索托"><span>莱索托</span><i>+266</i></li>
+    <li id="nationlist_LA" nationid="LA" title="老挝"><span>老挝</span><i>+856</i></li>
+    <li id="nationlist_LB" nationid="LB" title="黎巴嫩"><span>黎巴嫩</span><i>+961</i></li>
+    <li id="nationlist_LT" nationid="LT" title="立陶宛"><span>立陶宛</span><i>+370</i></li>
+    <li id="nationlist_LR" nationid="LR" title="利比里亚"><span>利比里亚</span><i>+231</i></li>
+    <li id="nationlist_LY" nationid="LY" title="利比亚"><span>利比亚</span><i>+218</i></li>
+    <li id="nationlist_LI" nationid="LI" title="列支敦士登"><span>列支敦士登</span><i>+423</i></li>
+    <li id="nationlist_RE" nationid="RE" title="留尼汪岛"><span>留尼汪岛</span><i>+262</i></li>
+    <li id="nationlist_LU" nationid="LU" title="卢森堡"><span>卢森堡</span><i>+352</i></li>
+    <li id="nationlist_RW" nationid="RW" title="卢旺达"><span>卢旺达</span><i>+250</i></li>
+    <li id="nationlist_RO" nationid="RO" title="罗马尼亚"><span>罗马尼亚</span><i>+40</i></li>
+    <li class="tl">M</li>
+    <li id="nationlist_MG" nationid="MG" title="马达加斯加"><span>马达加斯加</span><i>+261</i></li>
+    <li id="nationlist_MV" nationid="MV" title="马尔代夫"><span>马尔代夫</span><i>+960</i></li>
+    <li id="nationlist_MT" nationid="MT" title="马耳他"><span>马耳他</span><i>+356</i></li>
+    <li id="nationlist_MW" nationid="MW" title="马拉维"><span>马拉维</span><i>+265</i></li>
+    <li id="nationlist_MY" nationid="MY" title="马来西亚"><span>马来西亚</span><i>+60</i></li>
+    <li id="nationlist_ML" nationid="ML" title="马里"><span>马里</span><i>+223</i></li>
+    <li id="nationlist_MKD" nationid="MKD" title="马其顿"><span>马其顿</span><i>+389</i></li>
+    <li id="nationlist_MTQ" nationid="MTQ" title="马提尼克"><span>马提尼克</span><i>+596</i></li>
+    <li id="nationlist_MU" nationid="MU" title="毛里求斯"><span>毛里求斯</span><i>+230</i></li>
+    <li id="nationlist_MR" nationid="MR" title="毛里塔尼亚"><span>毛里塔尼亚</span><i>+222</i></li>
+    <li id="nationlist_MN" nationid="MN" title="蒙古"><span>蒙古</span><i>+976</i></li>
+    <li id="nationlist_BD" nationid="BD" title="孟加拉国"><span>孟加拉国</span><i>+880</i></li>
+    <li id="nationlist_PE" nationid="PE" title="秘鲁"><span>秘鲁</span><i>+51</i></li>
+    <li id="nationlist_MM" nationid="MM" title="缅甸"><span>缅甸</span><i>+95</i></li>
+    <li id="nationlist_MD" nationid="MD" title="摩尔多瓦"><span>摩尔多瓦</span><i>+373</i></li>
+    <li id="nationlist_MA" nationid="MA" title="摩洛哥"><span>摩洛哥</span><i>+212</i></li>
+    <li id="nationlist_MC" nationid="MC" title="摩纳哥"><span>摩纳哥</span><i>+377</i></li>
+    <li id="nationlist_MZ" nationid="MZ" title="莫桑比克"><span>莫桑比克</span><i>+258</i></li>
+    <li id="nationlist_MX" nationid="MX" title="墨西哥"><span>墨西哥</span><i>+52</i></li>
+    <li class="tl">N</li>
+    <li id="nationlist_NA" nationid="NA" title="纳米比亚"><span>纳米比亚</span><i>+264</i></li>
+    <li id="nationlist_ZA" nationid="ZA" title="南非"><span>南非</span><i>+27</i></li>
+    <li id="nationlist_YU" nationid="YU" title="南斯拉夫"><span>南斯拉夫</span><i>+381</i></li>
+    <li id="nationlist_NR" nationid="NR" title="瑙鲁"><span>瑙鲁</span><i>+674</i></li>
+    <li id="nationlist_NP" nationid="NP" title="尼泊尔"><span>尼泊尔</span><i>+977</i></li>
+    <li id="nationlist_NI" nationid="NI" title="尼加拉瓜"><span>尼加拉瓜</span><i>+505</i></li>
+    <li id="nationlist_NE" nationid="NE" title="尼日尔"><span>尼日尔</span><i>+227</i></li>
+    <li id="nationlist_NG" nationid="NG" title="尼日利亚"><span>尼日利亚</span><i>+234</i></li>
+    <li id="nationlist_NU" nationid="NU" title="纽埃岛"><span>纽埃岛</span><i>+683</i></li>
+    <li id="nationlist_NO" nationid="NO" title="挪威"><span>挪威</span><i>+47</i></li>
+    <li id="nationlist_NF" nationid="NF" title="诺福克岛"><span>诺福克岛</span><i>+6723</i></li>
+    <li class="tl">P</li>
+    <li id="nationlist_PT" nationid="PT" title="葡萄牙"><span>葡萄牙</span><i>+351</i></li>
+    <li class="tl">Q</li>
+    <li id="nationlist_GE" nationid="GE" title="乔治亚"><span>乔治亚</span><i>+995</i></li>
+    <li class="tl">R</li>
+    <li id="nationlist_SE" nationid="SE" title="瑞典"><span>瑞典</span><i>+46</i></li>
+    <li id="nationlist_CH" nationid="CH" title="瑞士"><span>瑞士</span><i>+41</i></li>
+    <li class="tl">S</li>
+    <li id="nationlist_ST" nationid="ST" title="圣多美和普林西比"><span>圣多美和普林西比</span><i>+239</i></li>
+    <li id="nationlist_SV" nationid="SV" title="萨尔瓦多"><span>萨尔瓦多</span><i>+503</i></li>
+    <li id="nationlist_SL" nationid="SL" title="塞拉利昂"><span>塞拉利昂</span><i>+232</i></li>
+    <li id="nationlist_SN" nationid="SN" title="塞内加尔"><span>塞内加尔</span><i>+221</i></li>
+    <li id="nationlist_CY" nationid="CY" title="塞浦路斯"><span>塞浦路斯</span><i>+357</i></li>
+    <li id="nationlist_SC" nationid="SC" title="塞舌尔"><span>塞舌尔</span><i>+248</i></li>
+    <li id="nationlist_SA" nationid="SA" title="沙特阿拉伯"><span>沙特阿拉伯</span><i>+966</i></li>
+    <li id="nationlist_PM" nationid="PM" title="圣彼埃尔"><span>圣彼埃尔</span><i>+508</i></li>
+    <li id="nationlist_SH" nationid="SH" title="圣赫勒拿"><span>圣赫勒拿</span><i>+290</i></li>
+    <li id="nationlist_SM" nationid="SM" title="圣马力诺"><span>圣马力诺</span><i>+223</i></li>
+    <li id="nationlist_LK" nationid="LK" title="斯里兰卡"><span>斯里兰卡</span><i>+94</i></li>
+    <li id="nationlist_SK" nationid="SK" title="斯洛伐克"><span>斯洛伐克</span><i>+421</i></li>
+    <li id="nationlist_SI" nationid="SI" title="斯洛文尼亚"><span>斯洛文尼亚</span><i>+386</i></li>
+    <li id="nationlist_SZ" nationid="SZ" title="斯威士兰"><span>斯威士兰</span><i>+268</i></li>
+    <li id="nationlist_SD" nationid="SD" title="苏丹"><span>苏丹</span><i>+249</i></li>
+    <li id="nationlist_SR" nationid="SR" title="苏里南"><span>苏里南</span><i>+597</i></li>
+    <li id="nationlist_SB" nationid="SB" title="所罗门群岛"><span>所罗门群岛</span><i>+677</i></li>
+    <li id="nationlist_SO" nationid="SO" title="索马里"><span>索马里</span><i>+252</i></li>
+    <li class="tl">T</li>
+    <li id="nationlist_TJ" nationid="TJ" title="塔吉克斯坦"><span>塔吉克斯坦</span><i>+7</i></li>
+    <li id="nationlist_TH" nationid="TH" title="泰国"><span>泰国</span><i>+66</i></li>
+    <li id="nationlist_TZ" nationid="TZ" title="坦桑尼亚"><span>坦桑尼亚</span><i>+255</i></li>
+    <li id="nationlist_TO" nationid="TO" title="汤加"><span>汤加</span><i>+676</i></li>
+    <li id="nationlist_TN" nationid="TN" title="突尼斯"><span>突尼斯</span><i>+216</i></li>
+    <li id="nationlist_TV" nationid="TV" title="图瓦卢"><span>图瓦卢</span><i>+688</i></li>
+    <li id="nationlist_TR" nationid="TR" title="土耳其"><span>土耳其</span><i>+90</i></li>
+    <li id="nationlist_TM" nationid="TM" title="土库曼斯坦"><span>土库曼斯坦</span><i>+993</i></li>
+    <li class="tl">W</li>
+    <li id="nationlist_VU" nationid="VU" title="瓦努阿图"><span>瓦努阿图</span><i>+678</i></li>
+    <li id="nationlist_GT" nationid="GT" title="危地马拉"><span>危地马拉</span><i>+502</i></li>
+    <li id="nationlist_VE" nationid="VE" title="委内瑞拉"><span>委内瑞拉</span><i>+58</i></li>
+    <li id="nationlist_BN" nationid="BN" title="文莱"><span>文莱</span><i>+673</i></li>
+    <li id="nationlist_UG" nationid="UG" title="乌干达"><span>乌干达</span><i>+256</i></li>
+    <li id="nationlist_UA" nationid="UA" title="乌克兰"><span>乌克兰</span><i>+380</i></li>
+    <li id="nationlist_UY" nationid="UY" title="乌拉圭"><span>乌拉圭</span><i>+598</i></li>
+    <li id="nationlist_UZ" nationid="UZ" title="乌兹别克斯坦"><span>乌兹别克斯坦</span><i>+998</i></li>
+    <li class="tl">X</li>
+    <li id="nationlist_ES" nationid="ES" title="西班牙"><span>西班牙</span><i>+34</i></li>
+    <li id="nationlist_WS" nationid="WS" title="西萨摩亚"><span>西萨摩亚</span><i>+685</i></li>
+    <li id="nationlist_GR" nationid="GR" title="希腊"><span>希腊</span><i>+30</i></li>
+    <li id="nationlist_NZ" nationid="NZ" title="新西兰"><span>新西兰</span><i>+64</i></li>
+    <li id="nationlist_HU" nationid="HU" title="匈牙利"><span>匈牙利</span><i>+36</i></li>
+    <li id="nationlist_SY" nationid="SY" title="叙利亚"><span>叙利亚</span><i>+963</i></li>
+    <li class="tl">Y</li>
+    <li id="nationlist_AM" nationid="AM" title="亚美尼亚"><span>亚美尼亚</span><i>+374</i></li>
+    <li id="nationlist_YE" nationid="YE" title="也门"><span>也门</span><i>+967</i></li>
+    <li id="nationlist_IQ" nationid="IQ" title="伊拉克"><span>伊拉克</span><i>+964</i></li>
+    <li id="nationlist_IR" nationid="IR" title="伊朗"><span>伊朗</span><i>+98</i></li>
+    <li id="nationlist_IL" nationid="IL" title="以色列"><span>以色列</span><i>+972</i></li>
+    <li id="nationlist_IT" nationid="IT" title="意大利"><span>意大利</span><i>+39</i></li>
+    <li id="nationlist_IN" nationid="IN" title="印度"><span>印度</span><i>+91</i></li>
+    <li id="nationlist_ID" nationid="ID" title="印度尼西亚"><span>印度尼西亚</span><i>+62</i></li>
+    <li id="nationlist_JO" nationid="JO" title="约旦"><span>约旦</span><i>+962</i></li>
+    <li id="nationlist_VN" nationid="VN" title="越南"><span>越南</span><i>+84</i></li>
+    <li class="tl">Z</li>
+    <li id="nationlist_ZM" nationid="ZM" title="赞比亚"><span>赞比亚</span><i>+260</i></li>
+    <li id="nationlist_ZR" nationid="ZR" title="扎伊尔"><span>扎伊尔</span><i>+243</i></li>
+    <li id="nationlist_TD" nationid="TD" title="乍得"><span>乍得</span><i>+235</i></li>
+    <li id="nationlist_GI" nationid="GI" title="直布罗陀"><span>直布罗陀</span><i>+350</i></li>
+    <li id="nationlist_CL" nationid="CL" title="智利"><span>智利</span><i>+56</i></li>
+    <li id="nationlist_CF" nationid="CF" title="中非"><span>中非</span><i>+236</i></li>
+</ul>
 </html>

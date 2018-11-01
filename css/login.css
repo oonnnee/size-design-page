@@ -81,23 +81,6 @@
     /*background-color: seagreen;*/
     position: relative;
 }
-/*#bottom input{*/
-    /*width: 300px;*/
-    /*height: 50px;*/
-    /*background-color: #000;*/
-    /*color: #cccccc;*/
-    /*border:0;*/
-    /*-webkit-border-radius: 5px;*/
-    /*-moz-border-radius: 5px;*/
-    /*border-radius: 5px;*/
-    /*outline: none;*/
-    /*cursor: pointer;*/
-    /*margin: 0 auto;*/
-    /*position: absolute;*/
-    /*left: 30px;*/
-    /*bottom: 80px;*/
-/*}*/
-
 /*修改placeholder字体的颜色*/
 input::placeholder{
     color: white;
@@ -122,7 +105,7 @@ html,body{
     -webkit-border-radius: 5px;
     -moz-border-radius: 5px;
     border-radius: 5px;
-    height: 35%;
+    height: 300px;
 }
 
 .edit{
@@ -136,7 +119,7 @@ html,body{
 }
 
 [class^="option_"] {
-    height: 30%;
+    height: 25%;
     padding-left: 5%;
     padding-right: 5%;
 }
@@ -146,6 +129,19 @@ html,body{
 }
 .option_1{
     margin-top: 4%;
+}
+
+.option_1 .box {
+    height: 100%;
+    line-height: 75px;
+}
+
+.option_1 .box a{
+    color: white;
+    text-decoration: none;
+    margin-left: 2%;
+    font-size: 15px;
+    float: right;
 }
 
 .rightWord{
@@ -169,24 +165,6 @@ html,body{
     height: 50%;
 }
 
-/*.bottom input{*/
-    /*width: 80%;*/
-    /*height: 20%;*/
-    /*background-color: #000;*/
-    /*color: #cccccc;*/
-    /*border:0;*/
-    /*-webkit-border-radius: 5px;*/
-    /*-moz-border-radius: 5px;*/
-    /*border-radius: 5px;*/
-    /*outline: none;*/
-    /*cursor: pointer;*/
-    /*margin: 60% 10%;*/
-/*}*/
-
-/*#btn:hover{*/
-    /*color: white;*/
-    /*cursor: pointer;*/
-/*}*/
 .btn{
     -webkit-appearance:none;
     width: 80%;
@@ -198,4 +176,68 @@ html,body{
     border: 0;
     margin-left: 10%;
     margin-top: 50px;
+}
+
+
+#nationlist {
+    width: 240px;
+    height: 420px;
+    overflow: auto;
+    margin: auto auto;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-top: 0 none;
+    border-radius: 5px;
+    padding: 12px 10px;
+}
+
+#nationlist .tl:first-child {
+    border-top: 0 none;
+}
+#nationlist .tl {
+    font-weight: bold;
+    color: #333;
+    text-indent: 6px;
+    cursor: default;
+    border-top: 1px solid #ddd;
+}
+#nationlist li {
+    height: 30px;
+    line-height: 30px;
+    font-size: 12px;
+    color: #666;
+    padding-right: 6px;
+    cursor: pointer;
+}
+li {
+    list-style: none;
+}
+
+#nationlist li.on {
+    color: #fff;
+    background-color: #E2BF8D;
+}
+
+#nationlist li span {
+    float: left;
+    width: 60%;
+    height: 30px;
+}
+#nationlist li span {
+    text-indent: 6px;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    -o-text-overflow: ellipsis;
+    overflow: hidden;
+}
+
+#nationlist li i {
+    width: 40%;
+    font-style: normal;
+    text-align: right;
+}
+ #nationlist li span {
+    float: left;
+    width: 60%;
+    height: 30px;
 }
