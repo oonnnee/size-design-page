@@ -37,8 +37,8 @@
       <file leaf-file-name="login.html" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/login.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="167">
-              <caret line="74" selection-start-line="74" selection-end-line="80" selection-end-column="12" />
+            <state relative-caret-position="224">
+              <caret line="86" column="37" lean-forward="true" selection-start-line="86" selection-start-column="37" selection-end-line="86" selection-end-column="37" />
               <folding>
                 <element signature="e#5834#5856#0" expanded="true" />
               </folding>
@@ -221,12 +221,12 @@
       <workItem from="1539078928044" duration="9192000" />
       <workItem from="1539767443541" duration="2340000" />
       <workItem from="1540971089675" duration="3000000" />
-      <workItem from="1541036089044" duration="6869000" />
+      <workItem from="1541036089044" duration="7128000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="79911000" />
+    <option name="totallyTimeSpent" value="80170000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -239,16 +239,15 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
-    <editor active="true" />
     <layout>
       <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.18229854" />
       <window_info anchor="bottom" id="TODO" order="6" weight="0.32905984" />
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Event Log" order="10" side_tool="true" />
+      <window_info anchor="bottom" id="Event Log" order="10" sideWeight="0.5006605" side_tool="true" weight="0.2724679" />
       <window_info anchor="bottom" id="Version Control" order="9" />
       <window_info anchor="bottom" id="Run" order="2" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
-      <window_info active="true" anchor="bottom" id="Terminal" order="8" visible="true" weight="0.2724679" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="8" sideWeight="0.4993395" visible="true" weight="0.2724679" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -559,8 +558,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/login.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="167">
-          <caret line="74" selection-start-line="74" selection-end-line="80" selection-end-column="12" />
+        <state relative-caret-position="224">
+          <caret line="86" column="37" lean-forward="true" selection-start-line="86" selection-start-column="37" selection-end-line="86" selection-end-column="37" />
           <folding>
             <element signature="e#5834#5856#0" expanded="true" />
           </folding>
