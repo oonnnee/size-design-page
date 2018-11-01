@@ -136,7 +136,7 @@
     }
 
     function login() {
-        var phone = $('#phone').val();
+        var phone = $('#country')[0].getAttribute('value') + $('#phone').val();
         var code = $('#code').val();
 
         if (code.trim() == '') {
