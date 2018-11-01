@@ -64,8 +64,8 @@
             return;
         }
         lock = true;
-        var phone = $('#country')[0].getAttribute('value') + $('#phone').val();
-        if (phone.trim() == '') {
+        var phone = $('#country')[0].getAttribute('value') + ' ' + $('#phone').val();
+        if ($('#phone').val().trim() == '') {
             myAlert('请输入手机号', function (index) {
                 layer.close(index);
                 lock = false;
@@ -136,7 +136,15 @@
     }
 
     function login() {
-        var phone = $('#country')[0].getAttribute('value') + $('#phone').val();
+        if ($('#phone').val().trim() == '') {
+            myAlert('请输入手机号', function (index) {
+                layer.close(index);
+                lock = false;
+            });
+            return;
+        }
+
+        var phone = $('#country')[0].getAttribute('value') + ' ' + $('#phone').val();
         var code = $('#code').val();
 
         if (code.trim() == '') {
