@@ -344,15 +344,10 @@
                     }
 
                     if (i == 0){
-                        if (!/^\d{11}$/.test(val)){
-                            myAlert('手机号格式错误');
-                            return;
-                        }
                         if (val != curUserPhone){
                             myAlert('手机号应与登陆号码一致');
                             return;
                         }
-
                     }
 
                     if (i == 2){
