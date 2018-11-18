@@ -13,26 +13,26 @@
     <script src="js/layer.js"></script>
     <script src="js/common.js"></script>
     <script>
-        $.ajax({
-            // url: 'http://localhost:8068/user/auth',
-            url: 'http://measure.justalit.com:8068/user/auth',
-            type: "get",
-            async: false,
-            xhrFields:{
-                withCredentials:true
-            },
-            success: function (data) {
-                if(data != 'true'){
-                    location.href = '/login.html?r='+new Date().getTime();
-                }
-            },
-            error: function(data) {
-                myAlert('出错啦', function (index) {
-                    layer.close(index);
-                    location.href = '/login.html?r='+new Date().getTime();
-                });
-            }
-        });
+        // $.ajax({
+        //     // url: 'http://localhost:8068/user/auth',
+        //     url: 'http://measure.justalit.com:8068/user/auth',
+        //     type: "get",
+        //     async: false,
+        //     xhrFields:{
+        //         withCredentials:true
+        //     },
+        //     success: function (data) {
+        //         if(data != 'true'){
+        //             location.href = '/login.html?r='+new Date().getTime();
+        //         }
+        //     },
+        //     error: function(data) {
+        //         myAlert('出错啦', function (index) {
+        //             layer.close(index);
+        //             location.href = '/login.html?r='+new Date().getTime();
+        //         });
+        //     }
+        // });
     </script>
     <script>
         $(function () {
@@ -108,7 +108,13 @@
                     </div>
                     <!--隐藏视频播放框开始-->
                     <div id="hideVideo" class="hideVideo">
-                        <video id="video" class="video" src="video/demo.mp4" controls="controls"></video>
+                        <video id="video" class="video" controls="controls">
+                            <source src="video/demo.mp4" type="video/mp4">
+                            <source src="video/demo.ogg" type="video/ogg">
+                            <source src="video/demo.webm" type="video/webm">
+                            您的浏览器暂不支持此播放器
+                        </video>
+                        <!--<video id="video" class="video" src="video/demo.mp4" controls="controls"></video>-->
                     </div>
                     <!--隐藏视频播放框结束-->
 
@@ -316,24 +322,24 @@
         <script src="js/index.js"></script>
         <script>
             var curUserPhone = '';
-            $.ajax({
-                // url: 'http://localhost:8068/user/phone',
-                url: 'http://measure.justalit.com:8068/user/phone',
-                type: "get",
-                async: false,
-                xhrFields:{
-                    withCredentials:true
-                },
-                success: function (data) {
-                    curUserPhone = data;
-                },
-                error: function() {
-                    myAlert('出错啦', function (index) {
-                        layer.close(index);
-                        location.href = '/login.html?r='+new Date().getTime();
-                    });
-                }
-            });
+            // $.ajax({
+            //     // url: 'http://localhost:8068/user/phone',
+            //     url: 'http://measure.justalit.com:8068/user/phone',
+            //     type: "get",
+            //     async: false,
+            //     xhrFields:{
+            //         withCredentials:true
+            //     },
+            //     success: function (data) {
+            //         curUserPhone = data;
+            //     },
+            //     error: function() {
+            //         myAlert('出错啦', function (index) {
+            //             layer.close(index);
+            //             location.href = '/login.html?r='+new Date().getTime();
+            //         });
+            //     }
+            // });
             function submit() {
                 var checks = ["phone", "tbName", "smallSize", "height", "neckKnee", "shoulderSleeve", "chest", "waist", "ass", "sleeveFat"];
                 for (var i=0; i<checks.length; i++){
